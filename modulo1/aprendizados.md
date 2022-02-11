@@ -1,0 +1,2 @@
+**Aprendizados da Semana**
+Aprendemos nas primeias atividades de Onboarding, as explicações dos programas slack e Zoom...e derem ênfase nas questões da diversidades, depois tivemos aulas de contrato, e algumas técnicas de programar e tirar dúvidas do Setup. Já no Módulo 1 aprendemos alguns fundamentos do desenvolvimento Web, tendo aulas como: Conhecendo o computador e o terminal; GIT.
