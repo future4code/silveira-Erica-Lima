@@ -1,67 +1,59 @@
-body {
-    font-family: Cambria, Cochin;
-    font-size: 25px;
-   
-
-}
-
-.Bem-vindo {
-    display: block;
-    text-align: center;
-    background-color: rgba(165, 83, 182, 0.699);
-    color: rgb(3, 21, 36);
-    width: 80%;
-    margin: 50px;
-    padding:55px ;
-    border: 6px solid rgb(16, 99, 194);
+/* Pagina Inicial */
+body{
     box-sizing: border-box;
-
 }
-
-.frase{
-   
+.div1{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    width: 90%;
+    margin: auto;
+    padding: 4px;
     text-align: center;
-    color: rgb(3, 21, 36);
-    width: 80%;
-    margin: 20px;
-    padding:55px ;
-   
-    box-sizing: border-box
+ 
+
+
 }
 
 .botoes{
-    background-color: rgba(165, 83, 182, 0.699);
-    color: black;
-    width: 80%;
-    text-align: center;
-    margin: 010px;
-    padding: 2px;
-    border-top: 5px solid  rgba(148, 35, 170, 0.699);
-    border-bottom: 5px solid rgba(148, 35, 170, 0.699);
-    border-right: 4px solid rgba(148, 35, 170, 0.699);
-    border-left: 4px solid  rgba(148, 35, 170, 0.699);
+    background-color: rgba(218, 112, 214, 0.685);
+    border: 3px solid rgba(83, 6, 83, 0.158);
+    width: 90%;
+    /* margin: auto; */
+    margin-left: 55px;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
+    
 }
 
-.rodape{
-    display: block;
+.div3{
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background-color: rgba(165, 83, 182, 0.699);;
-    color: rgb(3, 21, 36);
-    width: 80%;
-    margin: 50px;
-    padding:200px ;
-    border: 6px solid rgb(16, 99, 194);
-    box-sizing: border-box
+    font-size: 20px;
+    margin: auto;
+    width: 90%;
 }
 
-img{
-max-width: 80%;
-max-height: 80%;
-
+.div4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: auto;
+    background-color:  rgba(218, 112, 214, 0.651);
+    padding: 200px;
+    border: 15px solid rgba(9, 44, 68, 0.637);
+    
 }
 
-.tamanho{
-    height: 50px;
-    width: 89px;
+/* funcionarios */
+
+.div5{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
 }
