@@ -1,0 +1,59 @@
+/* Pagina Inicial */
+body{
+    box-sizing: border-box;
+}
+.div1{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    width: 90%;
+    margin: auto;
+    padding: 4px;
+    text-align: center;
+ 
+
+
+}
+
+.botoes{
+    background-color: rgba(218, 112, 214, 0.685);
+    border: 3px solid rgba(83, 6, 83, 0.158);
+    width: 90%;
+    /* margin: auto; */
+    margin-left: 55px;
+    padding-right: 10px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    
+}
+
+.div3{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    margin: auto;
+    width: 90%;
+}
+
+.div4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: auto;
+    background-color:  rgba(218, 112, 214, 0.651);
+    padding: 200px;
+    border: 15px solid rgba(9, 44, 68, 0.637);
+    
+}
+
+/* funcionarios */
+
+.div5{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
+}
