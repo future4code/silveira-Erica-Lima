@@ -5,12 +5,14 @@
 }
 
 body{
-    background-color:#912791da ;
+    background-color: beige ;
     display: grid;
     min-height: 100vh;
     grid-template-columns: 220px 1fr;
     grid-template-rows: 60px 1fr 60px;
 }
+
+
 
 header{
     background-color: #36BFB1;
@@ -39,6 +41,14 @@ main > h2{
     margin-top: 15px;
     padding: 0 30px;
 }
+
+main > h4{
+
+    font-size: 40px;
+    margin-top: 15px;
+    padding: 0 30px;
+}
+
 #pesquisa{
     background-color:#ffffffec;
     border:solid 1px;
@@ -62,15 +72,19 @@ main > video{
     ;
 }
 
+
 footer{
  
     flex-shrink: 0;
-    position:absolute;
+    position:fixed;
 	bottom:0;
+    left: 0;
+
 	width:100%;
-    height: 5%;
     background-color: #36BFB1;
     font-weight: bolder;
+    grid-column: 1 / -1;
+    display:grid
     
 }
 
@@ -79,5 +93,11 @@ footer > h5{
     align-items: center;
     margin-top: 15px;
     margin-left: 50%;
-    
+    margin-bottom: 0px auto;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    body{
+        grid-template-columns: 1fr;
+    }
 }
