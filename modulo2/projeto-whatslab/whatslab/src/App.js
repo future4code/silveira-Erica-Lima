@@ -1,41 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
-
-// function App() {
-//   return (
-//     // <div className="App">
-//     //   <header className="App-header">
-//     //     <img src={logo} className="App-logo" alt="logo" />
-//     //     <p>
-//     //       Edit <code>src/App.js</code> and save to reload.
-//     //     </p>
-//     //     <a
-//     //       className="App-link"
-//     //       href="https://reactjs.org"
-//     //       target="_blank"
-//     //       rel="noopener noreferrer"
-//     //     >
-          
-//     //     </a>
-//     //   </header>
-//     // </div>
+import React from 'react'
+import App from './App.css'
 
 
-//   );
-// }
+ function App() {
 
-// export default App;
-class NomeDoUsuario extends React.Component {
-  render() {
-    return (
-      <div>
-        Olá, {this.props.name}!
-      </div>
-    );
+  const usuario = () =>{
+    <textarea>{usuario}</textarea>
+    
   }
+  
+  const onClickEnviar = () => {
+    alert('Enviado')
+  }
+  const divStyle = {
+    border: 'black'
+    
+
+
+
+  }
+  return(
+    <div style={divStyle}>
+      <h1>WHATSLAB</h1>
+
+      <form>
+        <label>
+        <button onclick = {onClickEnviar}> Enviar</button>
+      <textarea></textarea>
+
+        </label>
+
+      </form>
+
+      {/* <button onclick = {onClickEnviar}> Enviar</button>
+      <textarea>Escreva sua mensagem</textarea> */}
+    </div>
+
+
+  )
 }
 
-ReactDOM.render(
-  <HelloMessage name="Taylor" />,
-  document.getElementById('hello-example')
-);
+export default App()
