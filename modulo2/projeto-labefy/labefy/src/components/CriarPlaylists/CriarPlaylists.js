@@ -1,10 +1,31 @@
 import React from "react"
 import axios from "axios"
+import Styled from "styled-components"
+
+const CardPlaylist = Styled.div`
+border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    textAlign:center;
+ 
+`
+
+CriarPlaylists = Style`
+backcolor: azul
+`
 
 export default class CriarPlaylists extends React.Component {
  state = {
    playlist: []
  }
+ componentDidMount() {
+    this.CriandoPlaylist()
+ }
+
+
  handlePlaylist = (event) => {
    this.setState({playlist: event.target.value})
 
@@ -37,13 +58,13 @@ export default class CriarPlaylists extends React.Component {
   render() {
  
     return (
-      <div>
+      <CardPlaylist>
         <input 
         placeholder={"Playlist"}
         value={this.state.playlist}
         onChange={this.handlePlaylist}/>
         <button onClick={this.CriandoPlaylist}>Criar</button>
-      </div>
+      </CardPlaylist>
     )
   }
 }

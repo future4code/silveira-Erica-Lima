@@ -5,7 +5,16 @@ export default class VerListas extends React.Component {
     state = {
         playlistsCriadas: []
     }
-   visualizar = () => {
+
+
+    // componentDidMount() {
+    //   this.visualizarPlaylists
+    // }
+    // componentDidMount() {
+    //   this.deletarPlaylist
+    // }
+
+   visualizarPlaylists = () => {
     const url= "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists"
     axios.get(url, {
         headers:{
@@ -35,17 +44,21 @@ export default class VerListas extends React.Component {
     })
   }
     render (){
-        // let listasPlaylists = this.state.playlistsCriadas.may((dado)
-        // return (
-        //     <Listas key={dado.id}>
-        //         <button onClick={() =>this.deletarPlaylist(dado.id)}>X</button>
-        //     </Listas>
-        // ))
+        let listasPlaylists = this.state.playlistsCriadas.may((user) => {
+        return(
+          <div key={user.id}>
+            {user.name}
+            <button onClick={() => this.deletarPlaylist()}>X</button>
+          </div>
+        )
+        })
 
         return(
             <div>
 
-                <btton onClick={this.playlistsCriadas}>Minhas Playlists</btton>
+                <btton onClick={this.props.playlistsCriadas}>Minhas Playlists</btton>
+                <h2>Minhas Playlists</h2>
+                {listasPlaylists}
             </div>
         )
     }

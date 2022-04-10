@@ -1,6 +1,6 @@
 import React from 'react'
 import CriarPlaylists from './components/CriarPlaylists/CriarPlaylists'
-import VerListas from './components/CriarPlaylists/VerListas'
+import VerListas from './components/VerListas/VerListas'
 
 
 export default class App extends React.Component {
@@ -15,7 +15,7 @@ export default class App extends React.Component {
       case "Minhas Playlists":
         return <VerListas cadastro={this.cadastro}/>
         default:
-          return <div>Erro!!!! </div>
+          return <CriarPlaylists/>
     }
   }
   lista = () => {
@@ -29,8 +29,6 @@ export default class App extends React.Component {
   render() {
     return(
       <div>
-        <VerListas
-        />
         {this.tiposDeTelas()}
       </div>
     )
