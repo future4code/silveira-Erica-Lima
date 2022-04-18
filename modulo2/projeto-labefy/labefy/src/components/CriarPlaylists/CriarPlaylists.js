@@ -13,9 +13,6 @@ border: 2px solid black;
  
 `
 
-CriarPlaylists = Style`
-backcolor: azul
-`
 
 export default class CriarPlaylists extends React.Component {
  state = {
