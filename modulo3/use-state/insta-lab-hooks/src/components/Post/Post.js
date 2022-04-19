@@ -37,7 +37,7 @@ const Post = (props) => {
     // setComentando(comentario.target.value)
     const listaDeComentarios = [...setComentarios, comentario]
 
-    setComentarios, setComentando, setNumeroComentarios({
+    setComentarios({
       comentarios: listaDeComentarios,
       comentando: false,
       numeroComentarios: setNumeroComentarios + 1
