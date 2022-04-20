@@ -10,7 +10,7 @@ import axios from "axios";
    
     
     pegaPokemon()
-  }, [setPokemon])
+  }, [])
 
 
   const pegaPokemon = pokeName => {

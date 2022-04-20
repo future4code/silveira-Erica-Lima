@@ -35,7 +35,7 @@ import PokeCard from "./Components/PokeCard/PokeCard";
           <select onChange={changePokeName}>
             <option value={""}>Nenhum</option>
           
-            {setPokeList.map(pokemon => {
+            {pokeList.map(pokemon => {
               return (
                 <option key={pokemon.name} value={pokemon.name}>
                   {pokemon.name}
