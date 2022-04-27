@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
+import { goToBackTrip } from '../../routes/coordinator';
 
 
-export default function TripDetailsPage(){
-
+export const TripDetailsPage =() => {
+    const navigate = useNavigate()
+   
     return(
         <div>
             <h1>Levis</h1>
@@ -16,7 +19,7 @@ export default function TripDetailsPage(){
       </div>
 
       <div>
-          <button>Voltar</button>
+          <button onClick={()=>goToBackTrip(navigate)}>Voltar</button>
       </div>
         </div>
     )

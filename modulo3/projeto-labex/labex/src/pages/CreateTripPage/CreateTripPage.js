@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { goToBackCreate } from "../../routes/coordinator";
 
-export default function CreateTripPages() {
+
+export const CreateTripPages = () => {
   const [inputData, setInputData] = useState("");
 
   const data = (event) => {
     setInputData(event.target.value);
   };
+  const navigate = useNavigate()
+  
+  
 
   return (
     <div>
@@ -34,6 +40,8 @@ export default function CreateTripPages() {
         <input placeholder="Duração em dias" />
       </label>{" "}
       <br></br>
+       <button onClick={()=> goToBackCreate (navigate)}>Voltar</button>
+       <button>Criar</button>
     </div>
   );
 }
