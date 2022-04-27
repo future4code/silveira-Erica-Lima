@@ -11,6 +11,11 @@ import TripDetailsPage from './pages/TripDetailsPage/TripDetailsPage';
 function App() {
   return (
     <div>
+      {/* <TripDetailsPage/> */}
+      {/* <CreateTripPages/> */}
+      {/* <AdminHomePages/> */}
+      {/* <LoginPage/> */}
+      {/* <ApplicatioFormPage/> */}
      {/* <HomePages/> */}
      <ListTripsPage/>
     </div>
