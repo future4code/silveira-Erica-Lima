@@ -15,8 +15,8 @@ useEffect (() =>{
  const getTrips = async () => {
    try{
      const response = await axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trips`)
-     console.log(response.data)
-     setList(response.data)
+     console.log(response.data.trips)
+     setList(response.data.trips)
    } catch(error){
      console.log(error)
    }
@@ -30,7 +30,12 @@ getTrips()
   // const listMap = list && list.map((viagem)=>{
   //  return(
   //    <div>
-  //    {viagem.name}</div>)
+  //   <p>Nome: {viagem.name}</p>
+  //   <p>Descrição: {viagem.description}</p>
+  //   <p>Planeta: {viagem.planet}</p>
+  //   <p>Duração: {viagem.durationInDays}</p>
+  //   <p>Dados: {viagem.date}</p>
+  //    </div>)
   // })
 
   return (
@@ -41,25 +46,16 @@ getTrips()
       </div>
 
       <h1>Listas de Viagens</h1>
-
+            {/* {listMap}  */}
       <div>
-        {/* {listMap()} */}
-        {/* <p>Nome:</p>
+       {/* {listMap} */}
+        {/* <p>Nome: {listMap.props.name}</p>
         <p>Descrição:</p>
         <p>Planeta:</p>
         <p>Duração:</p>
-        <p>Dados:</p> */}
+        <p>Dados:</p>
 
-        <ol>
-          <ul>
-            <li>Nome:</li>
-            <li>Descrição:</li>
-            <li>Planeta:</li>
-            <li>Duração:</li>
-            <li>Dados:</li>
-          </ul>
-        </ol>
-        
+        */}
       </div>
     </div>
   );

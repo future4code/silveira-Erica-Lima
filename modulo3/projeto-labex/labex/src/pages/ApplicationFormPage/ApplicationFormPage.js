@@ -1,21 +1,53 @@
-import React from "react";
+import axios from "axios";
+import React , {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { goToBackApplication } from "../../routes/coordinator";
 
 
+
 export const ApplicatioFormPage = () =>{
   const navigate = useNavigate()
+  const [application, setApplication] = useState()
 
-
+  useEffect (() =>{
+    const aluno = "erica-lima-silveira"
+   const getTrips = async () => {
+     try{
+       const response = await axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trips`)
+       console.log(response.data.trips)
+       setApplication(response.data.trips)
+     } catch(error){
+       console.log(error)
+     }
+   }
+  
+  getTrips()
+  
+  }, [])
+  
+//   onChangeViagem =(event) =>{
+//     setApplication ( event.target. value )
+// }
+//    }
+//    const options = application.map(e=>{
+//     return(
+//       <option value={e.name} key={e.id} >{e.name}</option>
+//     )
+//   })
 
   return (
     <div>
+      
       <h1>Inscreva-se para uma viagem</h1>
 
-      <select>
+
+     {/* < select name={"tripId"} value={application} onChange={onChangeViagem} >
+            {options}
+        </select> */}
+      {/* <select >
         <option value="Via Láctea Xpress">Via Láctea Xpress</option>
         <option value="Marte">Marte</option>
-        <option selected value="Escolha uma Viagem">
+        <option selected value= "Escolha uma viagem">
           Escolha uma Viagem
         </option>
         <option value="Levis">Levis</option>
@@ -23,7 +55,7 @@ export const ApplicatioFormPage = () =>{
         <option value="Deslizando nos anéis de saturno">
           Deslizando nos anéis de saturno
         </option>
-      </select>
+      </select> */}
 
       <form>
         <label>

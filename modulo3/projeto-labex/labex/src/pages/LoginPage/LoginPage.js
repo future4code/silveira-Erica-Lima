@@ -1,4 +1,6 @@
 import React from 'react'
+import axios from "axios"
+import {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom";
 import { goToBackLogin } from '../../routes/coordinator';
 import { goToAdmin } from '../../routes/coordinator';
@@ -6,6 +8,8 @@ import { goToAdmin } from '../../routes/coordinator';
 
 export const LoginPage = () =>{
     const navigate = useNavigate()
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
    
     return(
         <div>
