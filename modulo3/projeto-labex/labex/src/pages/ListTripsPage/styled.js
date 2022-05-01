@@ -1,16 +1,21 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
-export const Button = styled.button `
+export const Button = styled.div`
+ width: 15vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+    border: 1px solid black;
+    background-color: blueviolet;
+    margin: auto;
+    padding:5px;
+    margin-top: 5px;
 
-margin: 0 auto;
-border:1px solid #808080;
-border-radius:4px;
-/* display:inline-block; */
-cursor:pointer;
-font-weight:bold;
-font-size:13px;
-padding:6px 10px;
-text-decoration:none;
-background-color:#808080;
-
+`
+export const H1 = styled.div`
+margin: auto; 
+ margin-top: 5px;
+ display: flex;
+    flex-direction: column;
 `

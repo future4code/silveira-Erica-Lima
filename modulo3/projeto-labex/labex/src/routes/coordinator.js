@@ -47,6 +47,7 @@ export const goToBackAdmin = (navigate) =>{
 
  export const goToAdmin = (navigate) =>{
     navigate("/adminHome")
+    
   }
 
   //TripDetails

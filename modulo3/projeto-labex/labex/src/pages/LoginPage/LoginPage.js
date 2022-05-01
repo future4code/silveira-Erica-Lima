@@ -4,14 +4,14 @@ import {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom";
 import { goToBackLogin } from '../../routes/coordinator';
 import { goToAdmin } from '../../routes/coordinator';
-
+import { Button } from './styled';
 
 
 export const LoginPage = () =>{
     const navigate = useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useNavigate()
+  
 
     const onChangeEmail = (e) =>{
         setEmail(e.target.value)
@@ -21,49 +21,61 @@ export const LoginPage = () =>{
         setPassword(e.target.value)
     };
 
-    const onSubmitLogin = () => {
-        const body = {
-            email: email,
-            password: password
-        };
+    
+        const onSubmitLogin = (event) => {
+            event.preventDefault()
+            const body = {
+                email: email,
+                password:password
 
-        console.log(email, password)
+    
+            };
+    
+            console.log("Deu certo", email, password)
+    
+            axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/erica-lima-silveira/login", body)
+            .then((response) => {
+                 console.log("Deu certo", response.data.token)
+                 window.localStorage.setItem("token", response.data.token)
+                navigate.push("/")
+            //   { goToAdmin(navigate)}
+             })
+             .cath((error) => {
+                console.log("Deu erro", error.data)
+             })
+        } 
+ 
 
-        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/erica-lima-silveira/login", body)
-        .then((response) => {
-            console.log(":)", response.data.token)
-            window.localStorage.setItem("token", response.data.token)
-            history.push("/tripDetails")
-        })
-        .cath((error) => {
-            console.log(":(", error.data)
-        })
-    }
+    
    
     return(
         <div>
             <h1>Login</h1>
-            <div>
+            <form onSubmit={onSubmitLogin}>
             <label>
           <input placeholder="email"
           type="email"
           value= {email}
-          onChange={onChangeEmail} />
+          onChange={onChangeEmail} 
+          required
+          inputProps = { {pattern:`[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$
+          `}}
+          />
         </label> <br></br>
         <label>
           <input placeholder="password"
            type="password"
            value= {password}
-           onChange={onChangePassword} />
+           onChange={onChangePassword}
+           required
+            />
         </label> <br></br>
-            </div>
-
-            <div>
-                {/* <button onClick={ ()=>goToBackLogin(navigate) }>Voltar</button> */}
-                <button onClick={ ()=>goToBackLogin(navigate) }>Voltar</button>
-                {/* <button onClick={()=>goToAdmin(navigate)}>Entrar</button> */}
-                <button onClick={onSubmitLogin}>Entrar</button>
-            </div>
-        </div>
+        <Button onClick={ ()=>goToBackLogin(navigate) }>Voltar</Button>
+                 <Button onClick={()=>goToAdmin(navigate)}>Entrar</Button> 
+                {/* <button onClick={ onSubmitLogin } >Entrar</button> */}
+            
+        </form>
+            
+      </div>
     )
 }

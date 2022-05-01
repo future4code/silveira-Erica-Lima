@@ -2,18 +2,18 @@ import React ,{useState,useEffect}from 'react'
 import { useNavigate } from "react-router-dom";
 import { goToBackTrip } from '../../routes/coordinator';
 import axios from "axios"
+import {Button} from './styled';
 
 
 export const TripDetailsPage =() => {
     const navigate = useNavigate()
 
-    const history = useNavigate()
 
     useEffect(()=>{
         const token = localStorage.getItem('token')
         if (token === null){
             console.log("Precisa fazer o login!!!!")
-            history.push("/login")
+            navigate.push("/login")
         }
 
     },[])
@@ -29,7 +29,7 @@ export const TripDetailsPage =() => {
      })
            
         .then((response)=>{
-            console.log(response.data)
+            console.log(response.data.token)
         })
       
     .catch((error)=>{
@@ -51,7 +51,7 @@ export const TripDetailsPage =() => {
       </div>
 
       <div>
-          <button onClick={()=>goToBackTrip(navigate)}>Voltar</button>
+          <Button onClick={()=>goToBackTrip(navigate)}>Voltar</Button>
       </div>
         </div>
     )

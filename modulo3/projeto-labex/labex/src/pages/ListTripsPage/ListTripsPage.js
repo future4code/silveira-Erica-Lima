@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { goToBackList } from "../../routes/coordinator";
 import { goToApplication } from "../../routes/coordinator";
+import { Button } from "./styled";
+import { H1 } from "./styled";
 
 export const ListTripsPage = () => {
 const navigate = useNavigate()
@@ -16,7 +18,7 @@ useEffect (() =>{
    try{
      const response = await axios.get(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/${aluno}/trips`)
      console.log(response.data.trips)
-     setList(response.data.trips)
+     setList(response.data.trips.id)
    } catch(error){
      console.log(error)
    }
@@ -24,39 +26,40 @@ useEffect (() =>{
 
 getTrips()
 
-}, [])
+}, [list])
 
 
   // const listMap = list && list.map((viagem)=>{
   //  return(
   //    <div>
-  //   <p>Nome: {viagem.name}</p>
+
+  //      {viagem.name}
+  
+  //   {/* <p>Nome: {viagem.name}</p>
   //   <p>Descrição: {viagem.description}</p>
   //   <p>Planeta: {viagem.planet}</p>
   //   <p>Duração: {viagem.durationInDays}</p>
-  //   <p>Dados: {viagem.date}</p>
+  //   <p>Dados: {viagem.date}</p> */}
   //    </div>)
   // })
 
   return (
     <div>
       <div>
-        <button onClick={()=>goToBackList(navigate)}>Voltar</button>
-        <button onClick={()=>goToApplication (navigate)}>Inscrever-se</button>
+        <Button onClick={()=>goToBackList(navigate)}>Voltar</Button>
+        <Button onClick={()=>goToApplication (navigate)}>Inscrever-se</Button>
       </div>
+
+     
+      <H1>
 
       <h1>Listas de Viagens</h1>
-            {/* {listMap}  */}
-      <div>
-       {/* {listMap} */}
-        {/* <p>Nome: {listMap.props.name}</p>
-        <p>Descrição:</p>
-        <p>Planeta:</p>
-        <p>Duração:</p>
-        <p>Dados:</p>
 
-        */}
-      </div>
+       {/* {listMap} */}
+        
+
+        
+      </H1>
     </div>
   );
 }

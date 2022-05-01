@@ -2,7 +2,7 @@ import axios from "axios";
 import React , {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { goToBackApplication } from "../../routes/coordinator";
-
+import { Button } from './styled'
 
 
 export const ApplicatioFormPage = () =>{
@@ -354,8 +354,8 @@ export const ApplicatioFormPage = () =>{
         <option value="Zâmbia">Zâmbia</option>
       </select>
 
-      <button onClick={()=>goToBackApplication(navigate)}>Voltar</button>
-      <button>Enviar</button>
+      <Button onClick={()=>goToBackApplication(navigate)}>Voltar</Button>
+      <Button>Enviar</Button>
     </div>
   );
 }
