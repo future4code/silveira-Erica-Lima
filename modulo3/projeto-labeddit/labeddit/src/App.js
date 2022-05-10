@@ -3,16 +3,18 @@ import CadastroPage from "./pages/CadastroPage/CadastroPage"
 import FeedPage from "./pages/FeedPage/FeedPage"
 import LoginPage from "./pages/LoginPage/LoginPage"
 import PostPage from "./pages/PostPage/PostPage";
+import Router from "./routes/Router"
 
 
 const App = () => {
   return (
-<div>
- <CadastroPage/>
+<>
+ {/* <CadastroPage/>
  <FeedPage/>
  <LoginPage/>
- <PostPage/>
-</div>
+ <PostPage/> */}
+ <Router/>
+</>
   );
 }
 
