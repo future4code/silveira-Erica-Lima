@@ -1,1 +1,1 @@
-export const BASE_URL_ACESSO = "{{baseURL}}/users"
+export const BASE_URL= "https://labeddit.herokuapp.com"

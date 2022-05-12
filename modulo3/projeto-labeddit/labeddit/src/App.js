@@ -1,19 +1,15 @@
 import React from "react";
-import CadastroPage from "./pages/CadastroPage/CadastroPage"
-import FeedPage from "./pages/FeedPage/FeedPage"
-import LoginPage from "./pages/LoginPage/LoginPage"
-import PostPage from "./pages/PostPage/PostPage";
-import Router from "./routes/Router"
+import Router from "./routes/Router";
+import GlobalStyle from "./globalStled/GlobalStyle"
 
 
 const App = () => {
   return (
 <>
- {/* <CadastroPage/>
- <FeedPage/>
- <LoginPage/>
- <PostPage/> */}
- <Router/>
+{/* <GlobalStyle> */}
+<Router/>
+{/* </GlobalStyle> */}
+
 </>
   );
 }

@@ -1,60 +1,75 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL_ACESSO } from "../../constants/urls";
-import useForm from "../../hooks/useForm";
+import { BASE_URL} from "../../constants/urls";
 import { goToCadastro, goToFeed1 } from "../../routes/coordinator";
-import { Container, Formulario, Frase, Titulo, Botoes, Botao} from "./styled";
+import { Container, Formulario, Frase, Titulo, Botoes, Botao } from "./styled";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [login, setLogin] = useState()
-  const [password, setPassword] = useState()
-  const [form, onChange, clear] = useForm({emai: "", password: ""})
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
 
-  const onSubmitForm = (e) =>{
+  const onSubmitLogin = (e) =>{
     e.preventDefault()
-
+    const body = {
+      email: email,
+      password:password
+    }
+    axios.post(`${BASE_URL}/users/login`, body )
+      .then((response) => {
+        console.log("Deu certo ", response)
+        localStorage.setItem("token", response.data.token)
+        
+        goToFeed1(navigate)
+      })
+      .catch((error) => {
+        console.log("Houve erro.", error.response)
+      });
   }
 
-useEffect(()=> {
-  axios.post(`${BASE_URL_ACESSO}/login`)
-  .then((response) => {
-    setLogin(response.data)
-  })
-  .catch((error) => {
-    console.log("Houve erro.", error.response)
-  })
-})
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
 
   return (
     <Container>
       <Titulo>LabEddit</Titulo>
       <Frase>O projeto de rede social da Labenu</Frase>
-     <Formulario>
-     <form onSubmit={onSubmitForm}>
-        <label>
-          <input placeholder="Nome"
-         type="email"
-          value={form.email}
-          onChange={onChange}
-          fullWidth
-          margin={"normal"} 
-          required/>
-        </label>
-        <label>
-          <input placeholder="Senha" 
-          type="password"
-          value={form.password}
-          onChange={onChange } 
-          fullWidth
-          margin={"normal"}
-          required/>
-        </label>
-        
-      </form>
-     </Formulario>
-      <Botoes onClick={() => goToFeed1(navigate)}>Continuar</Botoes>
+      <Formulario>
+        <form onSubmit={onSubmitLogin}>
+          <label>
+            <input
+              placeholder="Nome"
+              type="email"
+              value={email}
+              onChange={onChangeEmail}
+            
+              margin={"normal"}
+              required
+            />
+          </label>
+          <label>
+            <input
+              placeholder="Senha"
+              type="password"
+              value={password}
+              onChange={onChangePassword}
+              margin={"normal"}
+              required
+            />
+          </label>
+          <Botoes type="submit"  >Continuar</Botoes>
+        </form>
+      </Formulario>
+
       <Botao onClick={() => goToCadastro(navigate)}>crie uma conta!</Botao>
     </Container>
   );

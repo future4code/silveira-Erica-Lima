@@ -24,7 +24,7 @@ display: flex;
 justify-content: center;
 
 `
-export const Formulario = styled.form`
+export const Formulario = styled.div`
 
 display: flex;
 justify-content: center;
