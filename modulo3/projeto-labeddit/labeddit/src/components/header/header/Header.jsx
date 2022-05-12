@@ -1,15 +1,18 @@
-import React from "react"
+import React, { useState } from "react"
 import { BotaoEntrar, Container } from "./styled";
 import { useNavigate } from "react-router-dom";
 import { goToLogin } from "../../../routes/coordinator";
 
 
-const Header = (props) => {
+const Header = () => {
   const  navigate = useNavigate()
+  
+const token =localStorage.getItem("token")
+const [rightButton, setRightButton] = useState(token ? "Logout" : "Login")
 return(
     <Container>
         <p>imagem</p>
-        <BotaoEntrar onClick={()=>goToLogin(navigate)}>Entrar</BotaoEntrar>
+        <BotaoEntrar onClick={()=>goToLogin(navigate)}>{rightButton}</BotaoEntrar>
   </Container>
 )
 }

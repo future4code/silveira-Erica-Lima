@@ -2,10 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL} from "../../constants/urls";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 import { goToCadastro, goToFeed1 } from "../../routes/coordinator";
 import { Container, Formulario, Frase, Titulo, Botoes, Botao } from "./styled";
 
 const LoginPage = () => {
+  useUnprotectedPage()
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,9 +26,10 @@ const LoginPage = () => {
         
         goToFeed1(navigate)
       })
-      .catch((error) => {
-        console.log("Houve erro.", error.response)
-      });
+      .catch((error) => 
+              // console.log("Houve erro.", error.response)
+              alert(error.response.data.message)
+            );;
   }
 
 

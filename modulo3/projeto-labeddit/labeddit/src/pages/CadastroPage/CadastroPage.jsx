@@ -3,9 +3,11 @@ import React, {useState, useEffect} from "react"
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/header/header/Header";
 import { BASE_URL } from "../../constants/urls";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 import { goToFeed2 } from "../../routes/coordinator";
 
 const CadastroPage = () => {
+  useUnprotectedPage()
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -25,9 +27,10 @@ const CadastroPage = () => {
             
             goToFeed2(navigate)
           })
-          .catch((error) => {
-            console.log("Houve erro.", error.response)
-          });
+          .catch((error) => 
+              // console.log("Houve erro.", error.response)
+              alert(error.response.data.message)
+            );;
       }
       
       const onChangeUsername = (e) => {
