@@ -6,18 +6,18 @@ import FeedPage from "../pages/FeedPage/FeedPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import PostPage from "../pages/PostPage/PostPage";
 
-const Router = () => {
+const Router = ({rightButton, setRightButton}) => {
   return (
-    <BrowserRouter>
-    
+ 
+   
      <Routes>
-         <Route index element = {<LoginPage/>}/>
-         <Route path ="cadastro/:id" element = {<CadastroPage/>}/>
-         <Route path = "feed" element= {<FeedPage/>}/>
-         <Route path = "post" element= {<PostPage/>}/>
+         <Route index element = { <LoginPage rightButton={rightButton} setRightButton={setRightButton} />}/>
+         <Route path ="/cadastro" element = {<CadastroPage rightButton={rightButton} setRightButton={setRightButton}  />}/>
+         <Route path = "/feed" element= {<FeedPage/>}/>
+         <Route path = "/post/:id" element= {<PostPage/>}/>
          <Route path = "*" element= {<ErroPage/>}/>
      </Routes>
-    </BrowserRouter>
+    
   );
 };
 

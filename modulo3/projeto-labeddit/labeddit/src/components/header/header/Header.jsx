@@ -4,15 +4,28 @@ import { useNavigate } from "react-router-dom";
 import { goToLogin } from "../../../routes/coordinator";
 
 
-const Header = () => {
+const Header = ({rightButton, setRightButton}) => {
   const  navigate = useNavigate()
-  
-const token =localStorage.getItem("token")
-const [rightButton, setRightButton] = useState(token ? "Logout" : "Login")
+  const token =localStorage.getItem("token")  
+
+const logout = () => {
+  localStorage.removeItem("token")
+}
+
+const rightButtonAction = () => {
+  if (token){
+    logout()
+    setRightButton("Login ")
+    goToLogin(navigate)
+  } else {
+    goToLogin(navigate)
+  }
+}
+
 return(
     <Container>
         <p>imagem</p>
-        <BotaoEntrar onClick={()=>goToLogin(navigate)}>{rightButton}</BotaoEntrar>
+        <BotaoEntrar onClick={rightButtonAction}>{rightButton}</BotaoEntrar>
   </Container>
 )
 }

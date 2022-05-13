@@ -5,8 +5,9 @@ import Header from "../../components/header/header/Header";
 import { BASE_URL } from "../../constants/urls";
 import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 import { goToFeed2 } from "../../routes/coordinator";
+import { Botao, Container, Formulario, Frase, Titulo1 } from "./styled";
 
-const CadastroPage = () => {
+const CadastroPage = ({rightButton, setRightButton}) => {
   useUnprotectedPage()
     const navigate = useNavigate()
     const [username, setUsername] = useState("")
@@ -48,12 +49,13 @@ const CadastroPage = () => {
    
 
 return(
-    <div>
-        <Header/>
+    <Container>
+      
         
-    <h1>Olá, boas vindas ao LabEddit!!!!!</h1>
-    <p>O projeto de rede social da Labenu</p>
-    <form onSubmit={onSubmitLogin}>
+    <Titulo1>Olá, boas vindas ao LabEddit!!!!!</Titulo1>
+    <Frase>O projeto de rede social da Labenu</Frase>
+    <Formulario>
+    <form onSubmit={onSubmitLogin} >
         <label>
             <input 
             placeholder="Nome de usuário"
@@ -83,14 +85,14 @@ return(
             required/>
         </label>
 
-        <button type="submit"  >Cadastrar</button>
+        <Botao type="submit"  >Cadastrar</Botao>
   
     </form>
-
+    </Formulario>
        
        
         
-         </div>
+         </Container>
 )
 }
 

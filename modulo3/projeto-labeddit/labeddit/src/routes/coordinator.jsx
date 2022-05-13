@@ -6,7 +6,7 @@ export const goToFeed1 = (navigate) => {
 
 
 export const goToCadastro = (navigate) => {
-    navigate("/cadastro/:id")
+    navigate("/cadastro")
 }
 
 // Cadastro
@@ -19,8 +19,8 @@ export const goToFeed2 = (navigate) => {
 //Feed
 
 
-export const goToPost = (navigate) => {
-    navigate("/post")
+export const goToPost = (navigate, id) => {
+    navigate(`/post/${id}`)
 }
 
 //Header

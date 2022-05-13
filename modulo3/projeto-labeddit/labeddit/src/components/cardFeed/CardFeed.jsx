@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../../constants/urls";
+
 import { ContainerCardFeed } from "./styled";
 
 
@@ -14,6 +14,7 @@ return(
      {/* {feed} */}
   <button>like</button>
   <button>deslike</button>
+  <button>comentários</button>
    </ContainerCardFeed>
 )
 }

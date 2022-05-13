@@ -6,7 +6,7 @@ import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 import { goToCadastro, goToFeed1 } from "../../routes/coordinator";
 import { Container, Formulario, Frase, Titulo, Botoes, Botao } from "./styled";
 
-const LoginPage = () => {
+const LoginPage = ({rightButton, setRightButton}) => {
   useUnprotectedPage()
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -23,13 +23,13 @@ const LoginPage = () => {
       .then((response) => {
         console.log("Deu certo ", response)
         localStorage.setItem("token", response.data.token)
-        
+        setRightButton("Logout")
         goToFeed1(navigate)
       })
       .catch((error) => 
               // console.log("Houve erro.", error.response)
               alert(error.response.data.message)
-            );;
+            )
   }
 
 

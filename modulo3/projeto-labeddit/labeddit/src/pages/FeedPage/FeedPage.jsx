@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import CardFeed from "../../components/header/cardFeed/CardFeed";
+import CardFeed from "../../components/cardFeed/CardFeed";
 import Header from "../../components/header/header/Header";
 import { BASE_URL } from "../../constants/urls";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { goToPost } from "../../routes/coordinator";
+import { Container, Formulario } from "./styled";
 
-const FeedPage = () => {
+const FeedPage = ({rightButton, setRightButton}) => {
    useProtectedPage()
     const navigate = useNavigate()
     const [postLista, setPostLista] = useState()
@@ -39,29 +40,28 @@ const FeedPage = () => {
 
       const renderPost = postLista && postLista.map((post) =>{
         return (
-          <p key={post.data}>{post.data}</p>
+          <p key={post.body}>{post.body}</p>
+        //   <CardFeed 
+        //  key={post.}
+        //  renderPost={renderPost}
+        //  />
         )
       })
     
 return(
-    <div>
-     
-      
-         <Header/>
+    <Container>
 
-         <form >
+         <Formulario >
          <label>
             <input
             placeholder="Escreva seu post..."
             />
         </label>
         <button >Postar</button>
-         </form>
-           {renderPost}
-         <CardFeed />
+         </Formulario>
+         {renderPost}
 
-
-         </div>
+         </Container>
 )
 }
 

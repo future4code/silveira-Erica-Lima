@@ -1,16 +1,18 @@
-import React from "react"
+import React from "react";
+import CardPost from "../../components/cardPost/CardPost";
 import Header from "../../components/header/header/Header";
 import useProtectedPage from "../../hooks/useProtectedPage";
 
 const PostPage = () => {
-    useProtectedPage()
-return(
-    <div>
-        <Header/>
-        
-        <h1>Post</h1>
-        </div>
-)
-}
+  useProtectedPage();
 
-export default  PostPage;
+  return (
+    <div>
+      {/* <Header /> */}
+      <CardPost/>
+
+    </div>
+  );
+};
+
+export default PostPage;
