@@ -1,33 +1,40 @@
 
+// enum Setor{
+//     MARKETING = "marketing",
+//     VENDAS = "vendas",
+//     FINANCEIRO = "financeiro"
 
-enum Setores{
-    MARKETING = "marketing",
-    VENDAS = "vendas",
-    FINANCEIRO = "financeiro"
+// }
 
-}
+// type Colaboradoras = {
+//     nome:string,
+//     salário:number,
+//     setor:Setor,
+//     presencial:boolean
+// }
 
-type Colaboradoras = {
-    nome:string,
-    salário:number,
-    setor:Setores,
-    presencial:boolean
-}
 
-function colaboradoras(nome:Colaboradoras[], salario:Colaboradoras[], setor:Colaboradoras[], presencial:Colaboradoras[]){
+// const ficha: Colaboradoras[] = [
+//     { nome: "Marcos", salário: 2500, setor:Setor.MARKETING, presencial: true },
+//     { nome: "Maria" ,salário: 1500, setor: Setor.VENDAS, presencial: false},
+//     { nome: "Salete" ,salário: 2200, setor: Setor.FINANCEIRO, presencial: true},
+//     { nome: "João" ,salário: 2800, setor: Setor.MARKETING, presencial: false},
+//     { nome: "Josué" ,salário: 5500, setor: Setor.FINANCEIRO, presencial: true},
+//     { nome: "Natalia" ,salário: 4700, setor:  Setor.VENDAS, presencial: true},
+//     { nome: "Paola" ,salário: 3500, setor: Setor.MARKETING, presencial: true }
+// ]
 
-    const ficha = [
-        { nome: "Marcos", salário: 2500, setor: "marketing", presencial: true },
-        { nome: "Maria" ,salário: 1500, setor: "vendas", presencial: false},
-        { nome: "Salete" ,salário: 2200, setor: "financeiro", presencial: true},
-        { nome: "João" ,salário: 2800, setor: "marketing", presencial: false},
-        { nome: "Josué" ,salário: 5500, setor: "financeiro", presencial: true},
-        { nome: "Natalia" ,salário: 4700, setor: "vendas", presencial: true},
-        { nome: "Paola" ,salário: 3500, setor: "marketing", presencial: true }
-    ]
+// function funcionarios(ficha:Colaboradoras[]){
 
-    const filtrando = ficha.presencial.filter
+//         return ficha.filter((pessoas)=>{
+//             return pessoas.setor.MARKETING === true
+//             // return pessoas.setor.Setor.MARKETING === true
+//         })
+            
 
-    
+// }
 
-}
+// console.log(funcionarios);
+
+// Não conseguir resolver
+
