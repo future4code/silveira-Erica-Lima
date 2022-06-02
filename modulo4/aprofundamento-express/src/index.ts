@@ -69,7 +69,9 @@ app.post("/add-afazeres/:add",(req:Request, res:Response)=>{
     if(!afazeresAuth){
         return res.status(400).send("Error!!!");
       }
-
+      const addTarefa = afazeres.filter((tarefa)=>{
+            return tarefa.userId ===  Number(add)
+        })
       
     const newAfazeres:Afazeres = {
         userId: req.body.userId,
@@ -78,9 +80,9 @@ app.post("/add-afazeres/:add",(req:Request, res:Response)=>{
         completed: req.body.completed
     }
 
-    const addTarefa = afazeres.filter((tarefa)=>{
-        return tarefa.userId ===  Number(add)
-    })
+    // const addTarefa = afazeres.filter((tarefa)=>{
+    //     return tarefa.userId ===  Number(add)
+    // })
 
     addTarefa.push(newAfazeres)
     res.status(200).send(addTarefa)
