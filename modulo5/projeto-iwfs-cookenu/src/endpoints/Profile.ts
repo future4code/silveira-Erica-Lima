@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
-import { BaseDataBase } from "../data/BaseDataBase";
 import {UserDataBase} from "../data/UserDataBase";
-import { User } from "../entities/Types";
 import { Authenticator } from "../services/Authenticator";
-import { HashManager } from "../services/HashManager";
-import { IdGenerator } from "../services/IdGenerator";
 
 export async function profile(req: Request, res:Response){
     try {

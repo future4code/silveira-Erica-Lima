@@ -38,15 +38,15 @@ export class UserDataBase extends BaseDataBase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
-  public async getUserById(id: string): Promise<any[]> {
+  public async getUserById(id: string): Promise<any> {
     try {
       
      
-        const userId = await BaseDataBase.connection("Signup")
+        const [userId] = await BaseDataBase.connection("Signup")
            .select( "id", "name","email")
            .where({ id: id })
            
-      return userId as any
+      return userId 
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }

@@ -35,13 +35,15 @@ export class Recipe {
       private title: string,
       private description: string,
       private preparation_mode: string,
-      private date_creation: Date
+      private date_creation:string,
+      private creator_id: string
     ) {
       this.id = id;
       this.title= title;
       this.description = description;
-      this.date_creation = date_creation
-      this.preparation_mode = preparation_mode
+      this.date_creation = date_creation;
+      this.preparation_mode = preparation_mode;
+      this.creator_id = creator_id;
     }
     public getId(){
       return this.id
@@ -58,9 +60,11 @@ export class Recipe {
     public getPreparationMode(){ 
         return this.preparation_mode
       }
-  
+      public getCreatorId(){ 
+        return this.creator_id
+      }
   
     static toUserModel(data: any): Recipe {
-      return new Recipe(data.id, data.title, data.description, data.preparation_mode, data.date_creation)
+      return new Recipe(data.id, data.title, data.description, data.preparation_mode, data.date_creation, data.creator_id)
     }
   }

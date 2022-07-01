@@ -9,11 +9,22 @@ export class RecipeDataBase extends BaseDataBase {
         title: recipe.getTitle(),
         description: recipe.getDescription(),
         preparation_mode:recipe. getPreparationMode(),
-        date_creation: recipe.getDateCreation()
+        date_creation: recipe.getDateCreation(),
+        creator_id:recipe.getCreatorId()
       });
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
   }
-  
+  public async getRecipeById(id: string): Promise<any> {
+    try {
+        const [recipeId] = await BaseDataBase.connection("Recipe")
+           .select("id", "title"," description", " preparation_mode", "date_creation")
+           .where({ id: id })
+           
+      return recipeId 
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
 }

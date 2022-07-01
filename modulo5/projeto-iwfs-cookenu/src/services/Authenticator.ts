@@ -12,7 +12,7 @@ export class Authenticator {
             input,
             process.env.JWT_KEY as string, 
             {
-                expiresIn: "1h"
+                expiresIn: "2h"
             }
         )
     }

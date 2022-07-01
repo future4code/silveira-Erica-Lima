@@ -2,25 +2,24 @@ POST  http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name":"Evelin",
-    "email": "evelin1929@gmail.com",
-    "password": "AnneFrank"
+    "name":"Maria Eduarda",
+    "email": "eduarda9@gmail.com",
+    "password": "123456"
 }
-
 ###
 # @name login
 POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-   "email": "evelin1929@gmail.com",
-    "password": "AnneFrank"
+  "email": "eduarda9@gmail.com",
+  "password": "123456"
 }
 
 ###
 
  @token = {{login.response.body.token}}
-# @name getProfile
+
 GET http://localhost:3003/user/profile
 Content-Type: application/json
 Authorization: {{token}}
@@ -32,13 +31,18 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-    "title":"BRIGADEIRO",
-    "description": "Brigadeiro cremoso",
-    "preparation_mode": "Em uma panela funda, acrescente o leite condensado, a margarina e o achocolatado ou 4 colheres de sopa de chocolate em pó.Cozinhe em fogo médio e mexa até que o brigadeiro comece a desgrudar da panela."
+    "title":"Cobertura de Bejinho",
+    "description": "Cremoso",
+    "preparation_mode": "Numa panela funda, acrescente o leite condensado, a margarina e o achocolatado ou 4 colheres de sopa de leite em pó."
 }
 ###
-# {getProfile.response.body.id}
-GET http://localhost:3003/user/a05c8975-38be-4dab-8dcf-8a33c4a6a34d
 
+
+GET http://localhost:3003/user/ea1b0938-446a-46fc-825c-c4dbae432b10
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+GET http://localhost:3003/recipe/d2d24bd6-1f23-4817-a648-45af438e580b
 Content-Type: application/json
 Authorization: {{token}}
