@@ -1,5 +1,7 @@
 import * as jwt from "jsonwebtoken"
+import dotenv from "dotenv";
 
+dotenv.config();
 export interface AuthenticationData{
     id: string
 }
@@ -10,7 +12,7 @@ export class Authenticator {
             input,
             process.env.JWT_KEY as string, 
             {
-                expiresIn: "15m"
+                expiresIn: "1h"
             }
         )
     }
@@ -20,6 +22,6 @@ export class Authenticator {
             token,  process.env.JWT_KEY as string, 
         )
 
-        return tokenData
+        return tokenData as AuthenticationData
     }
 }

@@ -13,6 +13,8 @@ export class BaseDataBase {
       database: process.env.DB_NAME,
 
     },
-  });
+  }
+  );
+ 
 }
  

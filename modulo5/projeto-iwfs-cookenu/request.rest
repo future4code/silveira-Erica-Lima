@@ -2,7 +2,43 @@ POST  http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name":"Erica",
-    "email": "ericggga@gmail.com",
-    "password": "eddnn5124"
+    "name":"Evelin",
+    "email": "evelin1929@gmail.com",
+    "password": "AnneFrank"
 }
+
+###
+# @name login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "evelin1929@gmail.com",
+    "password": "AnneFrank"
+}
+
+###
+
+ @token = {{login.response.body.token}}
+# @name getProfile
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+
+POST  http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "title":"BRIGADEIRO",
+    "description": "Brigadeiro cremoso",
+    "preparation_mode": "Em uma panela funda, acrescente o leite condensado, a margarina e o achocolatado ou 4 colheres de sopa de chocolate em pó.Cozinhe em fogo médio e mexa até que o brigadeiro comece a desgrudar da panela."
+}
+###
+# {getProfile.response.body.id}
+GET http://localhost:3003/user/a05c8975-38be-4dab-8dcf-8a33c4a6a34d
+
+Content-Type: application/json
+Authorization: {{token}}

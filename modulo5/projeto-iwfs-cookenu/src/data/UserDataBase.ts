@@ -1,4 +1,4 @@
-import { User } from "../entities/User";
+import { User } from "../entities/Types";
 import { BaseDataBase } from "./BaseDataBase";
 
 export class UserDataBase extends BaseDataBase {
@@ -11,7 +11,6 @@ export class UserDataBase extends BaseDataBase {
         password: user.getPassword(),
       });
     } catch (error: any) {
-      console.log("creteUser")
       throw new Error(error.sqlMessage || error.message);
     }
   }
@@ -22,7 +21,33 @@ export class UserDataBase extends BaseDataBase {
         .where({ email: email });
       return user[0] && User.toUserModel(user[0]);
     } catch (error: any) {
-      console.log(2)
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+  public async getAllUser(tokenData: string): Promise<User[]> {
+    try {
+      
+     
+        const user = await BaseDataBase.connection("Signup")
+           .select( "id", "name","email")
+           .where({ id: tokenData })
+           
+        
+        return user.map((user => User.toUserModel(user))) 
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+  public async getUserById(id: string): Promise<any[]> {
+    try {
+      
+     
+        const userId = await BaseDataBase.connection("Signup")
+           .select( "id", "name","email")
+           .where({ id: id })
+           
+      return userId as any
+    } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
   }
