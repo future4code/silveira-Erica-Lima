@@ -40,8 +40,6 @@ export class UserDataBase extends BaseDataBase {
   }
   public async getUserById(id: string): Promise<any> {
     try {
-      
-     
         const [userId] = await BaseDataBase.connection("Signup")
            .select( "id", "name","email")
            .where({ id: id })

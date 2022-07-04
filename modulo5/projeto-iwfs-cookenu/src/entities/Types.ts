@@ -68,3 +68,24 @@ export class Recipe {
       return new Recipe(data.id, data.title, data.description, data.preparation_mode, data.date_creation, data.creator_id)
     }
   }
+
+  
+export class Follow {
+  constructor(
+    private id_follow: string,
+    private id_followed: string,
+  ) {
+    this.id_followed = id_followed;
+    this.id_follow = id_follow;
+  }
+  public getIdFollow(){
+    return this.id_follow
+  }
+  public getIdFollowed(){
+    return this.id_followed
+  }
+
+  static toUserModel(data: any): Follow {
+    return new Follow(data.id_followed, data.id_follow)
+  }
+}
