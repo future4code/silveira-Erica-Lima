@@ -1,4 +1,4 @@
-POST  http://localhost:3003/user/signup
+POST  https://projeto-iwfs-cookenu-deploy.herokuapp.com/user/signup
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 ###
 # @name login
-POST http://localhost:3003/user/login
+POST https://projeto-iwfs-cookenu-deploy.herokuapp.com/user/login
 Content-Type: application/json
 
 {
@@ -20,13 +20,13 @@ Content-Type: application/json
 
  @token = {{login.response.body.token}}
 
-GET http://localhost:3003/user/profile
+GET https://projeto-iwfs-cookenu-deploy.herokuapp.com/user/profile
 Content-Type: application/json
 Authorization: {{token}}
 
 ###
 
-POST  http://localhost:3003/recipe
+POST  https://projeto-iwfs-cookenu-deploy.herokuapp.com/recipe
 Content-Type: application/json
 Authorization: {{token}}
 
@@ -38,11 +38,11 @@ Authorization: {{token}}
 ###
 
 
-GET http://localhost:3003/user/ea1b0938-446a-46fc-825c-c4dbae432b10
+GET https://projeto-iwfs-cookenu-deploy.herokuapp.com/user/ea1b0938-446a-46fc-825c-c4dbae432b10
 Content-Type: application/json
 Authorization: {{token}}
 
 ###
-GET http://localhost:3003/recipe/d2d24bd6-1f23-4817-a648-45af438e580b
+GET https://projeto-iwfs-cookenu-deploy.herokuapp.com/recipe/d2d24bd6-1f23-4817-a648-45af438e580b
 Content-Type: application/json
 Authorization: {{token}}
