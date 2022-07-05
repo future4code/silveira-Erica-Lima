@@ -7,7 +7,6 @@ import { getUser } from "./endpoints/GetUser";
 import {getRecipe} from "./endpoints/GetRecipe"
 
 
-
 //User
 app.get("/user/profile", profile)
 app.post("/user/signup", signup)
