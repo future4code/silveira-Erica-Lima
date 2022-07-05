@@ -1,0 +1,1 @@
+export const postTableName = "Labook_Posts";
