@@ -1,7 +1,4 @@
 export const userTableName = "Labook_Users";
-export type authenticationData = {
-  id: string;
-};
 
 
 export default class User {
