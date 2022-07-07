@@ -2,8 +2,8 @@ POST  http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name":"Erica Inacia",
-    "email": "erica@gmail.com",
+    "name":"Maria Eduarda",
+    "email": "eduarda9@gmail.com",
     "password": "123456"
 }
 ###
@@ -12,18 +12,17 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-  "email": "erica@gmail.com",
-    "password": "123456"
+  "email": "eduarda9@gmail.com",
+  "password": "123456"
 }
 
 ###
 
  @token = {{login.response.body.token}}
 
-# @name getProfile
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: {{login.response.body.token}}
+Authorization: {{token}}
 
 ###
 
@@ -32,27 +31,18 @@ Content-Type: application/json
 Authorization: {{token}}
 
 {
-    "title":"COXINHA",
-    "description": "Com massa de batata",
-    "preparation_mode": "Cozinhar o peito do frango com as 3 xícaras de água, o louro, 1 tablete de caldo de galinha e a cebola picada."
+    "title":"Cobertura de Bejinho",
+    "description": "Cremoso",
+    "preparation_mode": "Numa panela funda, acrescente o leite condensado, a margarina e o achocolatado ou 4 colheres de sopa de leite em pó."
 }
 ###
 
 
-GET http://localhost:3003/user/5da0193d-82a8-4ac5-b8a5-534d56fd9280
+GET http://localhost:3003/user/ea1b0938-446a-46fc-825c-c4dbae432b10
 Content-Type: application/json
 Authorization: {{token}}
 
 ###
-GET http://localhost:3003/recipe/191bfe32-88e1-4688-91ec-30c2a94ec497
+GET http://localhost:3003/recipe/d2d24bd6-1f23-4817-a648-45af438e580b
 Content-Type: application/json
 Authorization: {{token}}
-
-###
-POST  http://localhost:3003/user/follow
-Content-Type: application/json
-Authorization: {{token}}
-
-{
-    "id_followed":"5da0193d-82a8-4ac5-b8a5-534d56fd9280"
-}

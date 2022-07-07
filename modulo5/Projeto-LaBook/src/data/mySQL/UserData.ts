@@ -1,10 +1,10 @@
-import { User } from "../entities/Types";
+import { User } from "../../model/User";
 import { BaseDataBase } from "./BaseDataBase";
 
-export class UserDataBase extends BaseDataBase {
+export class UserData extends BaseDataBase {
   public async createUser(user: User): Promise<void> {
     try {
-      await BaseDataBase.connection("Signup").insert({
+      await BaseDataBase.connection("LaBook_User").insert({
         id: user.getId(),
         name: user.getName(),
         email: user.getEmail(),
@@ -16,7 +16,7 @@ export class UserDataBase extends BaseDataBase {
   }
   public async findUserByEmail(email: string): Promise<User> {
     try {
-      const user = await BaseDataBase.connection("Signup")
+      const user = await BaseDataBase.connection("LaBook_User")
         .select("*")
         .where({ email: email });
       return user[0] && User.toUserModel(user[0]);
@@ -24,25 +24,25 @@ export class UserDataBase extends BaseDataBase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
-  public async getAllUser(tokenData: string): Promise<User[]> {
-    try {
+  // public async getAllUser(tokenData: string): Promise<User[]> {
+  //   try {
       
      
-        const user = await BaseDataBase.connection("Signup")
-           .select( "id", "name","email")
-           .where({ id: tokenData })
+  //       const user = await BaseDataBase.connection("LaBook_User")
+  //          .select( "id", "name","email")
+  //          .where({ id: tokenData })
            
         
-        return user.map((user => User.toUserModel(user))) 
-    } catch (error: any) {
-      throw new Error(error.sqlMessage || error.message);
-    }
-  }
+  //       return user.map(user => User.toUserModel(user))
+  //   } catch (error: any) {
+  //     throw new Error(error.sqlMessage || error.message);
+  //   }
+  // }
   public async getUserById(id: string): Promise<any> {
     try {
       
      
-        const [userId] = await BaseDataBase.connection("Signup")
+        const [userId] = await BaseDataBase.connection("LaBook_User")
            .select( "id", "name","email")
            .where({ id: id })
            
