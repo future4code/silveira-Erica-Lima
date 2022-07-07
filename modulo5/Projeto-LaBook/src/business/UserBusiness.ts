@@ -1,65 +1,82 @@
-import { Request, Response } from "express";
 import { UserData } from "../data/mySQL/UserData";
+import { IncompleteField, IncompleteFieldLogin, InvalidEmail, InvalidPassword, InvalidPasswordIsCorrect, InvalidUser } from "../error/customError";
 import { User } from "../model/User";
 import { Authenticator } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
+import { LoginInputDTO } from "../type/LoginInputDTO";
 import { SignupInputDTO } from "../type/SignupInputDTO";
-import { UserRepository } from "./UserRepository";
 
-export class UserBusiness{
-// constructor(private userBusiness: UserRepository){}
-public  signup = async (input: SignupInputDTO, res: Response) => {
+
+export class UserBusiness {
+  constructor(
+    private authenticator: Authenticator,
+    private hashManager: HashManager,
+    private idGenerator: IdGenerator,
+    private userData: UserData
+  ) {}
+  public signup = async (input: SignupInputDTO) => {
     try {
-        const {name, email, password} = input
+      const { name, email, password } = input
 
-        if(!name || !email || !password){
-            res.statusCode = 422
-            throw new Error("Preencha os campos 'name','password' e 'email'.");
-        }
-        if(password.length < 6){
-            res.statusCode = 400
-            throw new Error("Inválido password");
-        }
-        if (!email.includes("@") || !email.includes(".com")) {
-            res.statusCode = 401;
-            throw new Error("O campo do email deve conter um '@' e um '.com'");
-        }
-
-        const userData = new UserData()
-        const user = await userData.findUserByEmail(email)
-
-        if (user) {
-          res.statusCode = 409
-          throw new Error('Email já cadastrado')
-       }
-
-        const idGenerator = new IdGenerator()
-        const id = idGenerator.generate()
-
-       const hashManager = new HashManager()
-       const hashPassword = hashManager.hash(password)
-
-       const newUser = new User(
-        id,
-         name, 
-         email, 
-         hashPassword
-         )
-       await userData.createUser(newUser)
-
-       const authenticator = new Authenticator()
-       const token = authenticator.generateToken({id})
-
-    } catch (error: any) {
-        res.status(500).send(error.message)
-    }
-}
-public  login = async (req: Request, res: Response) => {
-    try {
+      if (!name || !email || !password) {
+       
+        throw new IncompleteField();
+      }
+      if (password.length < 6) {
         
+        throw new InvalidPassword();
+      }
+      if (!email.includes("@") || !email.includes(".com")) {
+        
+        throw new InvalidEmail();
+      }
+
+      const user = await this.userData.findUserByEmail(email);
+
+      if (user) {
+       
+        throw new InvalidUser();
+      }
+
+      const id = this.idGenerator.generate();
+
+      const hashPassword = this.hashManager.hash(password);
+
+      const newUser = new User(id, name, email, hashPassword);
+      await this.userData.createUser(newUser);
+
+      const token = this.authenticator.generateToken({ id });
+      return token;
     } catch (error: any) {
-        res.status(500).send(error.message)
+      throw new Error(error.message);
     }
-}
+  };
+  public login = async (input: LoginInputDTO) => {
+    try {
+        const { email, password} = input
+        if(!email || !password){
+            
+            throw new IncompleteFieldLogin();
+        }
+          
+          const user = await this.userData.findUserByEmail(email)
+
+          if (!user) {
+          
+            throw new InvalidUser()
+         }
+         
+         const passwordIsCorrect = this.hashManager.compare(password, user.getPassword())
+
+         if (!passwordIsCorrect) {
+          throw new InvalidPasswordIsCorrect()
+         }
+         
+         const token = this.authenticator.generateToken({id: user.getId()})
+         return token
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  };
 }

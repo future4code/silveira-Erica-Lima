@@ -14,23 +14,23 @@ export default class UserController{
         email,
         password
     }
-    // const token = this.userBusiness.createUser(input)
-    res.status(201).send({message:"Criado com sucesso."})
+    const token =  await this.userBusiness.signup(input)
+    res.status(201).send({token})
     } catch (error:any) {
         res.status(500).send(error.message)
         
     }
    }
-   async  login  (req: Request, res: Response) {
+   public  login = async (req: Request, res: Response) => {
     try {
         const { email, password} = req.body
 
-    const input:LoginInputDTO = {
+    const input: LoginInputDTO = {
         email,
         password
     }
-     // const token = this.userBusiness.createUser(input)
-    res.status(201).send({message:"Logado com sucesso."})
+    const token =  await this.userBusiness.login(input)
+    res.status(200).send({token})
     } catch (error:any) {
         res.status(500).send(error.message)
         

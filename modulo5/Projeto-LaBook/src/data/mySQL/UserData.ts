@@ -24,29 +24,24 @@ export class UserData extends BaseDataBase {
       throw new Error(error.sqlMessage || error.message);
     }
   }
-  // public async getAllUser(tokenData: string): Promise<User[]> {
-  //   try {
-      
-     
-  //       const user = await BaseDataBase.connection("LaBook_User")
-  //          .select( "id", "name","email")
-  //          .where({ id: tokenData })
-           
-        
-  //       return user.map(user => User.toUserModel(user))
-  //   } catch (error: any) {
-  //     throw new Error(error.sqlMessage || error.message);
-  //   }
-  // }
+  public async getAllUser(tokenData: string): Promise<User[]> {
+    try {
+      const user = await BaseDataBase.connection("LaBook_User")
+        .select("id", "name", "email")
+        .where({ id: tokenData });
+
+      return user.map((user: any) => User.toUserModel(user));
+    } catch (error: any) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
   public async getUserById(id: string): Promise<any> {
     try {
-      
-     
-        const [userId] = await BaseDataBase.connection("LaBook_User")
-           .select( "id", "name","email")
-           .where({ id: id })
-           
-      return userId 
+      const [userId] = await BaseDataBase.connection("LaBook_User")
+        .select("id", "name", "email")
+        .where({ id: id });
+
+      return userId;
     } catch (error: any) {
       throw new Error(error.sqlMessage || error.message);
     }
