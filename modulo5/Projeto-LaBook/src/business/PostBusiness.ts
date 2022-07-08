@@ -4,87 +4,75 @@ import { Authenticator } from "../services/Authenticator";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
 import { PostInputDTO } from "../type/PostInputDTO";
-import { IncompleteFieldPost, InvalidType } from "../error/customError";
+import {
+  IncompleteFieldPost,
+  InvalidPostId,
+  InvalidType,
+} from "../error/customError";
 
+export class PostBusiness {
+  constructor(
+    private authenticator: Authenticator,
+    private hashManager: HashManager,
+    private idGenerator: IdGenerator,
+    private postData: PostData
+  ) {}
+  public createPost = async (input: PostInputDTO) => {
+    try {
+      const { photo, description, type, token } = input;
 
-export class PostBusiness{
-    constructor(
-        private authenticator: Authenticator,
-        private hashManager: HashManager,
-        private idGenerator: IdGenerator,
-        private postData: PostData
-      ) {}
-      public createPost = async (input: PostInputDTO, token:string) => {
-       try {
-        const {photo, description, type}= input
-        
-        
-   
-    const tokenData = this.authenticator.getTokenData(token);
+      const tokenData = this.authenticator.getTokenData(token);
+      if (!tokenData) {
+        throw new Error("Token inválido");
+      }
 
-   
+      if (!description) {
+        throw new IncompleteFieldPost();
+      }
 
-    if (!photo || !description || !type) {
-      
-      throw new   IncompleteFieldPost();
+      if (type !== POST_TYPE.evento && type !== POST_TYPE.normal) {
+        throw new InvalidType();
+      }
+
+      const id = this.idGenerator.generate();
+
+      const author_id = tokenData.id;
+
+      const date_creation = new Date().toISOString().split("T")[0];
+
+      const newPost = new Post(
+        id,
+        photo,
+        description,
+        date_creation,
+        type,
+        author_id
+      );
+      await this.postData.createPost(newPost);
+      return token;
+    } catch (error: any) {
+      throw new Error(error.message);
     }
-   
-    if (type !== POST_TYPE.evento.toLowerCase() || type !== POST_TYPE.normal.toLowerCase()) {
-      
-      throw new InvalidType();
-    } 
-   
-    const id = this.idGenerator.generate();
-
-    const author_id = tokenData.id
-
-    const date_creation = new Date().toISOString().split('T')[0];
-   
-    const newPost = new Post (
-      id,
-      photo,
-      description,
-      date_creation,
-      type,
-      author_id
-    );
-    await this.postData.createPost(newPost);
-    return token
-       } catch (error: any) {
-        throw new Error(error.message)
-       }
-
+  };
+  public getPost = async (id: string, token: string) => {
+    try {
+      if (!token) {
+        throw new Error("Precisa do token");
       }
-      public getPost = async (token, tokenData) =>{
-        try {
-          if(!tokenData) {
-            res.statusCode = 401
-            res.statusMessage = "Token inválido"
-            throw new Error()
-         }
-     if (!token) {
-      //  res.statusCode = 422;
-      //  res.statusMessage = "Token não informado";
-       throw new Error();
-     }
- 
-    
- 
-     const postId = await this.postData.getPostById(id);
-     if (!postId) {
-       res.statusCode = 406;
-       res.statusMessage = "Id inválido";
-       throw new Error();
-     }
-     const verificationPost = {
-       id: post.id,
-       title: recipeId.title,
-       description: recipeId.description,
-       preparation_mode: recipeId.preparation_mode,
-       date_creation: recipeId.date_creation,
-     };
-        } catch (error: any) {
-          throw new Error(error.message)
-        }
+
+      const tokenData = this.authenticator.getTokenData(token);
+      if (!tokenData) {
+        throw new Error("Token inválido");
       }
+
+      const postId = await this.postData.getPostById(id);
+      if (!postId) {
+        throw new InvalidPostId();
+      }
+
+      return postId;
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  };
 }

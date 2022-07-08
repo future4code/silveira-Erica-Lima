@@ -52,12 +52,18 @@ export class InvalidPasswordIsCorrect extends CustomError{
 
 export class IncompleteFieldPost extends CustomError{ 
     constructor(){
-        super(422, "Preencha os campos 'photo','description' e 'type'.")
+        super(422, "Preencha os campos obrigatoriamente 'description'.")
     }
 }
 
  export class InvalidType extends CustomError{ 
     constructor(){
         super(400, "Type incorreto")
+    }
+}
+
+export class InvalidPostId extends CustomError{ 
+    constructor(){
+        super(400, "Post não encontrado")
     }
 }

@@ -18,13 +18,20 @@ Content-Type: application/json
 }
 ###
  @token = {{login.response.body.token}}
-POST  http://localhost:3003/post/create
+POST http://localhost:3003/post/create
 Content-Type: application/json
 Authorization: {{token}}
 
 {
-    "photo":"Praia", 
+    "photo":"Praia",
      "description":"Maldivas",  
-     "type":
+     "type": "NORMAL"
             
 }
+
+###
+GET  http://localhost:3003/post/cb868fab-7db2-4f53-983e-2ba1d7b7870f
+Content-Type: application/json
+Authorization: {{token}}
+
+ 
