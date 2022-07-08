@@ -1,0 +1,58 @@
+POST  http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name":"Erica Inacia",
+    "email": "erica@gmail.com",
+    "password": "123456"
+}
+###
+# @name login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+  "email": "erica@gmail.com",
+    "password": "123456"
+}
+
+###
+
+ @token = {{login.response.body.token}}
+
+# @name getProfile
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: {{login.response.body.token}}
+
+###
+
+POST  http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "title":"COXINHA",
+    "description": "Com massa de batata",
+    "preparation_mode": "Cozinhar o peito do frango com as 3 xícaras de água, o louro, 1 tablete de caldo de galinha e a cebola picada."
+}
+###
+
+
+GET http://localhost:3003/user/5da0193d-82a8-4ac5-b8a5-534d56fd9280
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+GET http://localhost:3003/recipe/191bfe32-88e1-4688-91ec-30c2a94ec497
+Content-Type: application/json
+Authorization: {{token}}
+
+###
+POST  http://localhost:3003/user/follow
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "id_followed":"5da0193d-82a8-4ac5-b8a5-534d56fd9280"
+}
