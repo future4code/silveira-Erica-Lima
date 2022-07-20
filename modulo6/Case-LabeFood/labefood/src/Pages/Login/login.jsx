@@ -60,7 +60,7 @@ const Login = () => {
   };
   return (
     <Main>
-      <p>Login</p>
+      <p>Entrar</p>
       <Form onSubmit={onSubmitLogin}>
         <InputMaterial
           error={checkErrEmail}

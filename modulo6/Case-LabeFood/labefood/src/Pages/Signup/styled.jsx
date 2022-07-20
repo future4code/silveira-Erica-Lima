@@ -4,28 +4,36 @@ import TextField from "@mui/material/TextField";
 
 export const Main = styled.div`
   padding: 10px;
-  width: 100%;
+ height: 100vh;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  p {
-    font-size: 1rem;
-  }
-`;
+ 
 
-export const Form = styled.form`
-  display: flex;
+form{
+ margin-top: 50px;
   flex-direction: column;
-  width: 80%;
-  height: 30%;
+  width: 90%;
+  height: 50%;
+  display: flex;
   justify-content: space-evenly;
+  flex-direction: column;
+}
+  
+
+ p{
+    font-size: 2rem
+  }
+  
 `;
 
 export const ButtonStyled = styled(Button)`
   && {
     background-color: #e8222e;
     color: #000000;
+   width: 100%;
+   margin-top: 5px
   }
 `;
 
@@ -33,10 +41,13 @@ export const DivPassword = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  p{
+    font-size: 100%
+  }
 `;
 
 export const InputMaterial = styled(TextField)`
-  && {
+
     width: 100%;
-  }
+
 `;
