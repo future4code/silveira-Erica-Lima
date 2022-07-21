@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "../../Hooks/useForm";
-import { ButtonStyled, Form, InputMaterial, Main } from "./styled";
+import { ButtonStyled, InputMaterial, Main } from "./styled";
 import { BASE_URL } from "../../Constants/url";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { goToSignupAdress } from "../../Router/coordinator";
+import { goToFeed } from "../../Router/coordinator";
 
 const SignupAdress = () => {
   const { form, onChange, clean } = useForm({
@@ -18,27 +18,28 @@ const SignupAdress = () => {
 
   const onSubmitFormAdress = (event) => {
     event.preventDefault();
-    //  if(form.password !== confirmPassword){
-    //   setCheckErrPassword(true)
-    //  }else{
-    //   setCheckErrPassword(false)
-    //   signupAdressApi ()
-    //  }
+    signupAdressApi();
   };
+
   const navigate = useNavigate();
 
   const signupAdressApi = async () => {
+    const token = localStorage.getItem("token");
+
     await axios
-      .post(`${BASE_URL}/adress`, form)
+      .put(`${BASE_URL}/address`, form, {
+        headers: {
+          auth: token,
+        },
+      })
       .then((res) => {
+        console.log(res.data);
         localStorage.setItem("token", res.data.token);
-        alert(`Boas vindas ${res.data.user.name}`);
-        goToSignupAdress(navigate);
+
+        goToFeed(navigate);
       })
       .catch((err) => {
-        console.log(err.response.data.message);
-        alert(`Email ou CPF já cadastrados.`);
-        clean();
+        console.log(err.response);
       });
   };
 

@@ -7,7 +7,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { BASE_URL } from "../../Constants/url";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { goToSignupAdress } from "../../Router/coordinator";
+import { goToSignupAddress } from "../../Router/coordinator";
 
 const Signup = () => {
   const [password, setPassword] = useState("");
@@ -56,7 +56,7 @@ const Signup = () => {
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         alert(`Boas vindas ${res.data.user.name}`);
-        goToSignupAdress(navigate);
+        goToSignupAddress(navigate);
       })
       .catch((err) => {
         console.log(err.response.data.message);
