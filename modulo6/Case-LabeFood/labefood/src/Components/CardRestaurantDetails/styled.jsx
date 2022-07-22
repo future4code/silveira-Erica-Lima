@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ContainerCardRestaurantDetails = styled.div`
 width:100%;
-border: 1px solid black;
 margin: 0.5rem 0;
 `
 

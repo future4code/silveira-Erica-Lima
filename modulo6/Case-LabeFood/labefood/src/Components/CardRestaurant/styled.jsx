@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const ContainerCardRestaurant = styled.div`
 width:100%;
-border: 1px solid black;
 margin: 0.5rem 0;
+border: 1px solid black;
 `
 
 export const ImageRestaurant = styled.img`

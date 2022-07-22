@@ -35,5 +35,5 @@ export const MenuItem = styled.button`
   border: none;
   outline: none;
   padding: 0 1rem;
-  background: transparent
+  background: transparent;
 `;
