@@ -8,7 +8,6 @@ import CardProduct from "../../Components/CardProduct/CardProduct";
 import Header from "../../Components/Header/Header";
 
 
-
 const Restaurant = () => {
     const {restaurantId} = useParams()
     const [restaurant, setRestaurant] = useState({})

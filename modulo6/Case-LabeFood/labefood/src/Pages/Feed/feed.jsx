@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import CardRestaurant from "../../Components/CardRestaurant/CardRestaurant";
 import { BoxInformTimePrice } from "../../Components/CardRestaurant/styled";
 import Header from "../../Components/Header/Header";
+import Search from "../../Components/Search/Search";
 import { BASE_URL } from "../../Constants/url";
 import { CardsRestaurants, Main, InputSearch, Menu, MenuItem } from "./styled";
 
@@ -95,6 +96,8 @@ const Feed = () => {
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
         />
+        {/* <Search value={inputText}
+          onChange={(e) => setInputText(e.target.value)}/> */}
       </BoxInformTimePrice>
       <CardsRestaurants>
         <Menu>

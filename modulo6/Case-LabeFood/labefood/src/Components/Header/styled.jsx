@@ -5,7 +5,7 @@ width:100%;
 border: 1px solid #B8B8B8;
 height: 2.75rem ;
 display: grid;
-grid-template-colums: 24px 1fr 24px;
+grid-template-columns: 24px 1fr 24px;
 padding: 0 1rem;
 justify-items: center;
 align-items: center;
