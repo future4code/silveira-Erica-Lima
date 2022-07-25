@@ -1,24 +1,33 @@
 CREATE TABLE IF NOT EXISTS Client(
   id VARCHAR(255) PRIMARY KEY,
+  name VARCHAR(255)  NOT NULL
+);
+CREATE TABLE IF NOT EXISTS Buyer(
+  id VARCHAR(255) PRIMARY KEY,
   name VARCHAR(255)  NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
   cpf VARCHAR(255) UNIQUE NOT NULL ,
-
+  name_client VARCHAR(255) ,
+ 
 );
-
-
 CREATE TABLE IF NOT EXISTS Card(
   id VARCHAR(255) PRIMARY KEY,
   card_holder_name VARCHAR(255)  NOT NULL,
   card_number  VARCHAR(255)  NOT NULL,
   card_expiration_date VARCHAR(255) UNIQUE NOT NULL ,
-  card_cvv  VARCHAR(255)  NOT NULL
+  card_cvv  VARCHAR(255)  NOT NULL,
+  buyer_id VARCHAR(255) ,
+  FOREIGN KEY(buyer_id) REFERENCES Buyer(id),
 );
 CREATE TABLE IF NOT EXISTS Payment(
   id VARCHAR(255) PRIMARY KEY,
   amount VARCHAR(255)  NOT NULL,
   type ENUM("BOLETO", "CARD") NOT NULL,
-  card_id VARCHAR(255) ,
-  FOREIGN KEY(card_id) REFERENCES Card(id)
-  
+  status ENUM("A PAGAR", "PAGO")
+  buyer_id VARCHAR(255) ,
+  card_id VARCHAR(255),
+  client_id VARCHAR(255) ,
+  FOREIGN KEY(buyer_id) REFERENCES Buyer(id),
+  FOREIGN KEY(card_id) REFERENCES Card(id),
+  FOREIGN KEY(client_id) REFERENCES Client(id)
 );
