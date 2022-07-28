@@ -23,9 +23,18 @@ Content-Type: application/json
 # ""status":,"
 {
       "amount": "R$ 27,55",
-      "type": "BOLETO",
+      "type": "BOLETO"
         
-       "buyer_id":, 
-       "card_id":, 
-       "client_id":
+
+}
+###
+POST http://localhost:3003/card
+Content-Type: application/json
+
+{
+      "card_holder_name": "Erica Inacia de Lima",
+      "card_number": "1597894774123698",
+      "card_cvv":"123"
+        
+
 }

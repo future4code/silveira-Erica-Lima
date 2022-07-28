@@ -22,7 +22,7 @@ export class PaymentBusiness {
       payment = async(input: PaymentInputDTO) => {
         try {
           const {amount, type, status, buyer_id, card_id, client_id} = input
-            if (!amount || !type || !status || !buyer_id || !card_id || !client_id ) {
+            if (!amount || !type || !status  ) {
                 throw new CustomError(422, "Missing input");
               }
               const verificationAmout = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(amount)

@@ -10,8 +10,8 @@ export class PaymentController{
             const input: PaymentInputDTO = {
                 amount, type, status, buyer_id, card_id, client_id
             }
-            const result =await this.paymentBusiness.payment(input)
-            res.status(201).send({ result });
+            const token =await this.paymentBusiness.payment(input)
+            res.status(201).send({ token });
         } catch (error: any) {
             const { statusCode, message } = error;
           res.status(statusCode || 400).send({ message });
