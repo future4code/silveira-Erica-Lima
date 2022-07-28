@@ -1,0 +1,31 @@
+POST http://localhost:3003/client
+Content-Type: application/json
+
+{
+     "id": 1
+}
+
+###
+
+POST http://localhost:3003/buyer
+Content-Type: application/json
+
+{
+     "name":"Mariana Eduarda",
+     "email": "eduarda9@gmail.com",
+     "cpf": "12345678912"
+}
+
+###
+
+POST http://localhost:3003/payment
+Content-Type: application/json
+# ""status":,"
+{
+      "amount": "R$ 27,55",
+      "type": "BOLETO",
+        
+       "buyer_id":, 
+       "card_id":, 
+       "client_id":
+}
