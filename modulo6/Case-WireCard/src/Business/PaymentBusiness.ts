@@ -21,8 +21,8 @@ export class PaymentBusiness {
       ) {}
       payment = async(input: PaymentInputDTO) => {
         try {
-          const {amount, type, status, buyer_id, card_id, client_id} = input
-            if (!amount || !type || !status  ) {
+          const {amount, type} = input
+            if (!amount || !type   ) {
                 throw new CustomError(422, "Missing input");
               }
               const verificationAmout = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(amount)
@@ -33,6 +33,12 @@ export class PaymentBusiness {
             if(type !== TYPE.BOLETO && type !== TYPE.CARD){
               throw new CustomError(403, "Incorrect type, put 'BOLETO' or 'CARD'");
             }
+
+            const tokenData = this.tokenGenerator.getTokenData(token)
+         const buyer_id = tokenData.id
+          const card_id =  tokenData.id
+          const client_id =  tokenData.id
+
             if(status !== STATUS.PAGO && status !== STATUS.PAGAR ){
               throw new CustomError(403, "Incorrect status");
             }

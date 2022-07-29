@@ -17,7 +17,7 @@ export class CardBusiness {
   ) {}
   card = async(input:CardInputDto) => {
     try {
-      const {card_holder_name, card_number,  buyer_id, card_cvv} = input
+      const {card_holder_name, card_number, card_cvv} = input
       if (!card_holder_name || !card_number || !card_cvv) {
         throw new CustomError(422, "Missing input");
       }
@@ -31,9 +31,11 @@ export class CardBusiness {
           if (!buyerExist ) {
             throw new CustomError(404, `Buyer could not be found`)
         };
-      const id = this.idGenerator.generate();
+        const id = this.idGenerator.generate();
 
-      const card_expiration_date = new Date()
+        const buyer_id = this.tokenGenerator.id
+
+      const card_expiration_date = new Date().toISOString().split("T")[0];
 
       const newCard = new Card (id, card_holder_name, card_number, card_expiration_date, buyer_id, card_cvv);
 
