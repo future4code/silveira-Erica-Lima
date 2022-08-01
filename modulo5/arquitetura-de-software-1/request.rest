@@ -1,0 +1,10 @@
+POST  http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "name":"Erica Inacia",
+    "nickname":"Erikinha",
+    "email": "erica@gmail.com",
+    "password": "123456",
+    "role":"NORMAL"
+}

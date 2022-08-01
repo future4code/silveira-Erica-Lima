@@ -20,7 +20,11 @@ Content-Type: application/json
 
  @token = {{login.response.body.token}}
 
+<<<<<<< HEAD
 GET https://projeto-iwfs-cookenu-deploy.herokuapp.com/user/profile
+=======
+GET http://localhost:3003/user/profile
+>>>>>>> master
 Content-Type: application/json
 Authorization: {{token}}
 
@@ -38,11 +42,19 @@ Authorization: {{token}}
 ###
 
 
+<<<<<<< HEAD
 GET https://projeto-iwfs-cookenu-deploy.herokuapp.com/user/ea1b0938-446a-46fc-825c-c4dbae432b10
+=======
+GET http://localhost:3003/user/ea1b0938-446a-46fc-825c-c4dbae432b10
+>>>>>>> master
 Content-Type: application/json
 Authorization: {{token}}
 
 ###
+<<<<<<< HEAD
 GET https://projeto-iwfs-cookenu-deploy.herokuapp.com/recipe/d2d24bd6-1f23-4817-a648-45af438e580b
+=======
+GET http://localhost:3003/recipe/d2d24bd6-1f23-4817-a648-45af438e580b
+>>>>>>> master
 Content-Type: application/json
 Authorization: {{token}}

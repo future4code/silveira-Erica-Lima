@@ -1,0 +1,37 @@
+POST https://silveira-projeto-labook.herokuapp.com/user/signup
+Content-Type: application/json
+
+{
+     "name":"Mariana Eduarda",
+    "email": "eduarda9@gmail.com",
+    "password": "123456"
+}
+### 
+
+# @name login
+POST https://silveira-projeto-labook.herokuapp.com/user/login
+Content-Type: application/json
+
+{
+  "email": "eduarda9@gmail.com",
+  "password": "123456"
+}
+###
+ @token = {{login.response.body.token}}
+POST https://silveira-projeto-labook.herokuapp.com/post/create
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "photo":"Praia",
+     "description":"Maldivas",  
+     "type": "NORMAL"
+            
+}
+
+###
+GET  https://silveira-projeto-labook.herokuapp.com/post/cb868fab-7db2-4f53-983e-2ba1d7b7870f
+Content-Type: application/json
+Authorization: {{token}}
+
+ 
