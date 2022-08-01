@@ -8,7 +8,6 @@ import { BuyerData } from "../Data/BuyerData";
 export class CardBusiness {
   constructor(
     private idGenerator: IdGenerator,
-
     private cardData: CardData,
     private buyerData: BuyerData
   ) {}
@@ -24,10 +23,10 @@ export class CardBusiness {
       if (!card_holder_name || !card_number || !card_cvv) {
         throw new CustomError(422, "Missing input");
       }
-      if (card_number.length > 16 || card_number.length < 16) {
+      if (card_number.length !== 16) {
         throw new CustomError(422, "Invalid card_number");
       }
-      if (card_cvv.length > 3 || card_cvv.length < 3) {
+      if (card_cvv.length !== 3) {
         throw new CustomError(422, "Invalid card_cvv");
       }
       const verificationBuyer_id = await this.buyerData.getBuyerById(buyer_id);

@@ -24,10 +24,10 @@ export class BuyerBusiness {
         throw new CustomError(401, "Invalid credentials");
       }
 
-      const verificationCpf= await this.buyerData.findBuyerByCpf(cpf)
+      const verificationCpf = await this.buyerData.findBuyerByCpf(cpf);
 
       if (verificationCpf) {
-          throw new CustomError(401,"Invalid credentials")
+        throw new CustomError(401, "Invalid credentials");
       }
       const id = this.idGenerator.generate();
       const newBuyer = new Buyer(id, name, email, cpf);
@@ -38,5 +38,16 @@ export class BuyerBusiness {
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message);
     }
+  };
+  getBuyerId = async (id: string) => {
+    if (!id) {
+      throw new CustomError(400, "Enter a buyer id");
+    }
+    const buyerId = await this.buyerData.getBuyerById(id);
+
+    if (!buyerId) {
+      throw new CustomError(400, "There is no buyer with this id");
+    }
+    return buyerId;
   };
 }

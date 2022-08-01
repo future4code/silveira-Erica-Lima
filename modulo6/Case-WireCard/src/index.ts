@@ -28,6 +28,7 @@ const buyerBusiness = new BuyerBusiness(
 );
 const buyerController = new BuyerController(buyerBusiness);
 app.post("/buyer", buyerController.buyer);
+app.get("/buyer/:id", buyerController.getBuyerId)
 
 const paymentBusiness = new PaymentBusiness(
   new IdGenerator(),
