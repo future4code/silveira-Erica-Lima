@@ -49,5 +49,17 @@ export class BuyerData extends BaseData{
 
         }
     }
-    
+    public async findBuyerByCpf(cpf:string) : Promise<Buyer | undefined>{
+
+        try {
+           const buyer = await BaseData.connection(this.tableName).select("*")
+            .where({cpf: cpf})
+            return buyer[0] && Buyer.toUserModel(buyer[0])
+        }   
+        catch (error:any) {
+            console.log(error)
+            throw new CustomError(400, error.sqlMessage);
+
+        }
+    }
 } 

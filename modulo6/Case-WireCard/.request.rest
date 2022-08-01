@@ -2,39 +2,51 @@ POST http://localhost:3003/client
 Content-Type: application/json
 
 {
-     "id": 1
+     "id": 8
 }
 
 ###
-
 POST http://localhost:3003/buyer
 Content-Type: application/json
 
 {
-     "name":"Mariana Eduarda",
-     "email": "eduarda9@gmail.com",
-     "cpf": "12345678912"
+     "name":"Erica Lima",
+     "email": "ericalima@gmail.com",
+     "cpf": "25462358885"
 }
 
 ###
-
 POST http://localhost:3003/payment
 Content-Type: application/json
-# ""status":,"
+
 {
-      "amount": "R$ 27,55",
-      "type": "BOLETO"
+    "amount": "158",
+    "type": "BOLETO",
+    "card_holder_name": "Erica Lima",
+    "card_number": "15987635815932456",
+    "card_expiration_date": "02/2028",
+    "card_cvv": "number",
+    "client_id": "string",
+    "buyer_id": "string",
+    
         
 
 }
 ###
-POST http://localhost:3003/card
+GET http://localhost:3003/card
 Content-Type: application/json
 
-{
-      "card_holder_name": "Erica Inacia de Lima",
-      "card_number": "1597894774123698",
-      "card_cvv":"123"
+{        
+   
+    "amount": "158",
+    "type": "BOLETO",
+    "status": "PAGO OU A PAGAR",
+    "card_holder_name": "string",
+    "card_number": "string",
+    "card_expiration_date": "mm/aaaa",
+    "card_cvv": "number",
+    "client_id": "string",
+    "buyer_id": "string",
         
 
 }

@@ -15,7 +15,6 @@ export class Payment{
         private type: TYPE,
         private status: STATUS,
         private buyer_id: string,
-        private card_id: string,
         private client_id: string,
     ){}
 
@@ -34,13 +33,27 @@ export class Payment{
     getBuyerId = ():string => {
         return this.buyer_id
     }
-    getCarId= ():string => {
-        return this.card_id
-    }
+   
+
     getClientId= ():string => {
         return this.client_id
     }
     static toUserModel(data: any): Payment {
-        return new Payment(data.id, data.amount, data.type, data.status, data.buyer_id, data.card_id, data.client_id);
+        return new Payment(data.id, data.amount, data.type, data.status, data.buyer_id, data.card_id);
       }
+}
+export interface PaymentCard {
+    buyer_id: string
+    card_holder_name: string
+    card_number: string
+    card_expiration_date: string
+    card_cvv: string
+}
+
+export interface PaymentBoleto {
+    client_id: string
+    buyer_id: string
+    amount: number
+    type: TYPE
+    status: STATUS
 }
