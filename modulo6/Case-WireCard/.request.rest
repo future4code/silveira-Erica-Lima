@@ -10,9 +10,9 @@ POST http://localhost:3003/buyer
 Content-Type: application/json
 
 {
-     "name":"Evelin Lima",
-     "email": "evelinlima@gmail.com",
-     "cpf": "98745963215"
+     "name":"Gabi",
+     "email": "gabi@gmail.com",
+     "cpf": "25257894452"
 }
 
 ###
@@ -21,17 +21,14 @@ Content-Type: application/json
 
 {
     "amount": 2555,
-    "type": "CARD",
-    "status": "PAGO",
-    "card_holder_name": "Evelin Lima",
-    "card_number": "1598763581593246",
-    "card_expiration_date": "02/2028",
-    "card_cvv": "123",
-    "client_id": "8",
-    "buyer_id": "09137137-2122-45e6-922a-7607185e68fe"
+    "type": "BOLETO",
+    "status": "PAGAR",
+    
+    "client_id": "1",
+    "buyer_id": "fc1b1e8d-75fc-4a7e-b851-d0211334658d"
 }
 ###
-GET http://localhost:3003/buyer/:id
+GET http://localhost:3003/buyer/fc1b1e8d-75fc-4a7e-b851-d0211334658d
 
 ###
-GET http://localhost:3003/payment/:id
+GET http://localhost:3003/payment/96dc0354-c5aa-45ba-a527-beb576cb174b

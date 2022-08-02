@@ -49,7 +49,7 @@ export class PaymentController {
         };
         await this.paymentBusiness.payment(inputBoleto);
         const numberBoleto = Date.now();
-        res.status(201).send({ message: `Numberthe boleto ${numberBoleto}` });
+        res.status(201).send({ message: `Number the boleto ${numberBoleto}` });
       }
     } catch (error: any) {
       const { statusCode, message } = error;

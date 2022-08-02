@@ -42,8 +42,9 @@ export class PaymentBusiness {
         amount,
         type,
         status,
-        client_id,
-        buyer_id
+        buyer_id,
+        client_id
+        
       );
       await this.paymentData.createPayment(newPayment);
 

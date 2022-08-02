@@ -41,6 +41,7 @@ export class BuyerData extends BaseData{
         try {
            const [buyer]:Buyer[] = await BaseData.connection(this.tableName).select("*")
             .where({id})
+            
             return buyer
         }
         catch (error:any) {
