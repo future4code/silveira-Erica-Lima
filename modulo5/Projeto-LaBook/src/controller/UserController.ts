@@ -1,4 +1,26 @@
 import { Request, Response } from "express";
+<<<<<<< HEAD
+import { SignupInputDTO } from "../type/SignupInputDTO";
+
+export default class UserController{
+   async  signup  (req: Request, res: Response) {
+    try {
+        const {name, email, password} = req.body
+
+    const input: SignupInputDTO = {
+        name,
+        email,
+        password
+    }
+    } catch (error) {
+        
+    }
+   }
+   login = async (req: Request, res: Response) => {
+
+   }
+}
+=======
 import { UserBusiness } from "../business/UserBusiness";
 import { LoginInputDTO } from "../type/LoginInputDTO";
 import { SignupInputDTO } from "../type/SignupInputDTO";
@@ -35,3 +57,4 @@ export default class UserController {
     }
   };
 }
+>>>>>>> master
