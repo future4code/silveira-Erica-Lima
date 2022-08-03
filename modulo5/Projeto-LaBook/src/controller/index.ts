@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+import {app} from "./app";
+import UserController from "./UserController";
+
+const userController = new UserController()
+
+app.post("/sinup", userController.signup)
+app.post("/login", userController.login)
+=======
 import { PostBusiness } from "../business/PostBusiness";
 import { UserBusiness } from "../business/UserBusiness";
 import { UserData } from "../data/mySQL/UserData";
@@ -34,3 +43,4 @@ app.post("/user/signup", userController.signup)
 
  app.post("/post/create", postController.createPost)
  app.get("/post/:id", postController.getPost)
+>>>>>>> master
