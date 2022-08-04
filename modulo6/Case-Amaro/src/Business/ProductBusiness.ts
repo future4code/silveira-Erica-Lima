@@ -16,9 +16,9 @@ export class ProductBusiness {
       }
       const verifyName = name.toLocaleUpperCase()
       const verifyTags = tags.toLocaleLowerCase()
-      
+      const arrayTags = [...verifyTags]
       const id = this.idGenerator.generate();
-      const newProduct = new Product(id, verifyName, verifyTags);
+      const newProduct = new Product(id, verifyName, arrayTags);
       await this.productData.createProduct(newProduct);
       return newProduct;
     } catch (error: any) {
