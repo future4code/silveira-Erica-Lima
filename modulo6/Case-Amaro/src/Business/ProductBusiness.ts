@@ -16,18 +16,21 @@ export class ProductBusiness {
       }
       const verifyName = name.toLocaleUpperCase()
       const verifyTags = tags.toLocaleLowerCase()
-      const arrayTags = [...verifyTags]
       const id = this.idGenerator.generate();
-      const newProduct = new Product(id, verifyName, arrayTags);
+      const newProduct = new Product(id, verifyName, verifyTags);
       await this.productData.createProduct(newProduct);
       return newProduct;
     } catch (error: any) {
       throw new CustomError(error.statusCode, error.message);
     }
   };
-  getTags = async(tags:string) => {
+  getName = async(name:string) => {
     try{
-
+      const verifyName = name.toLocaleUpperCase()
+      if(!verifyName){
+        throw new CustomError(422, "Missing input");
+      }
+      return await this.productData.findProductByName(name)
     } catch (error:any) {
         throw new CustomError(error.statusCode, error.message);
     }

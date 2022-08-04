@@ -16,4 +16,17 @@ export class ProductData extends BaseData {
       throw new CustomError(400, error.sqlMessage);
     }
   }
+  public async findProductByName(name:string) : Promise<Product | undefined>{
+
+    try {
+       const product = await BaseData.connection(this.tableName).select("*")
+        .where({name: name})
+        return product[0] && Product.toUserModel(product[0])
+    }   
+    catch (error:any) {
+        console.log(error)
+        throw new CustomError(400, error.sqlMessage);
+
+    }
+}
 }

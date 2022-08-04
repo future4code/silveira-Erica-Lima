@@ -18,10 +18,10 @@ export class ProductController{
             res.status(statusCode || 400).send({ message });
         }
     }
-    getTags = async(req: Request, res: Response)=>{
+    getName = async(req: Request, res: Response)=>{
         try {
-            const {tags} = req.body
-            const result = await this.ProductBusiness.getTags(tags)
+            const {name} = req.body
+            const result = await this.ProductBusiness.getName(name)
             res.status(200).send(result)
         } catch (error:any) {
             const { statusCode, message } = error;
