@@ -3,6 +3,7 @@
 * {
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  background-color: black ;
 }
 
 
@@ -11,8 +12,10 @@
   height: 321px;
   margin: 0 12px 12px 0;
   padding: 153px 117px 100px 149px;
-  background-color: #011726;
-  color: aliceblue;
+  /* background-color: #011726; */
+  color:azure ;
+  
+  background-color: teal;
  
 }
 
@@ -46,7 +49,9 @@
     padding: 5px 20px 7px 21px;
     border-radius: 8px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-    background-color: #82d0d9;
+    /* background-c:olor #82d0d9; */
+    color: rgb(148, 143, 188);
+    background-color: rgb(37, 2, 2);
 }
 
 .ContainerConhecimentos{
