@@ -6,3 +6,15 @@
 
 https://github.com/amaroteam/back-end-challenge
 
+### API Amaro
+
+### Tecnologias usadas:
+
+Typescript;
+MySQL;
+Express.js;
+Node;
+Knex
+
+
+
