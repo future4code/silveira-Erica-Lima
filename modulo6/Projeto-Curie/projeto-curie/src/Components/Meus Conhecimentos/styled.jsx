@@ -5,10 +5,22 @@ export const Container = styled.div`
   padding: 90px 281px 107px 281px;
 
   h1 {
-    align-items: center;
+    /* align-items: center;
     padding-left: 500px;
     padding-bottom: 100px;
-    font-size: 35px;
+    font-size: 45px; */
+    width: 968px;
+  height: 60px;
+  margin: 0 188px 35px 226px;
+  font-family: Montserrat;
+  font-size: 45px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.15px;
+  text-align: center;
+  color: #fff;
   }
 `;
 
@@ -35,7 +47,7 @@ export const ColunasDesenvolvimento = styled.div`
   height: 133px;
   margin: 30px 161px 0 0;
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
