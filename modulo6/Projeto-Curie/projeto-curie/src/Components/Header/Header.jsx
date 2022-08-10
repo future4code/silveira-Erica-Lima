@@ -5,9 +5,12 @@ const Header = () => {
  return(
     <ContainerHeader>
        <h2>Erica Inacia</h2>
+       <div>
        <ButtonQuemSou>quem sou</ButtonQuemSou>
        <ButtonProjetos>projetos</ButtonProjetos>
        <ButtonContato>contato</ButtonContato>
+       </div>
+      
     </ContainerHeader>
  )
 }

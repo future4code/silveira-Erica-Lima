@@ -3,24 +3,32 @@ import styled from "styled-components";
 export const ContainerHeader = styled.div`
   width: 100%;
   height: 5%;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
+
+  /* display: grid;
 grid-template-columns: 5fr repeat(3, 1fr);
 grid-template-rows: 1fr;
 grid-column-gap: 13px;
-grid-row-gap: 1px;
+grid-row-gap: 1px; */
 
+ div{
+    display: flex;
+
+ }
   h2 {
-    width: 800px;
+    /* width: 190px; */
     height: 25px;
-    margin: 0 192px 139px 0;
+    /* margin: 0 192px 139px 0; */
     font-family: Montserrat;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
-    font-stretch: normal;
+    /* font-stretch: normal;
     font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.28px;
+    line-height: normal; */
+    /* letter-spacing: -0.28px; */
     color: #fff;
+  
     
   }
 `;
