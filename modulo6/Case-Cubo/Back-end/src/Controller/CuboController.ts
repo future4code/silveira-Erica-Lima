@@ -13,8 +13,19 @@ export class CuboController {
         laster_name,
         participation
       };
-      const result = await this.cuboBusiness.createCubo(input);
-      res.status(201).send({ result });
+       await this.cuboBusiness.createCubo(input);
+      res.status(201).send({message:"Successfully created" });
+    } catch (error: any) {
+      const { statusCode, message } = error;
+      res.status(statusCode || 400).send({ message });
+    }
+  };
+  selectCubo = async (req: Request, res: Response) => {
+    try {
+      
+    
+      const result = await this.cuboBusiness.selectCubo();
+      res.status(200).send({result});
     } catch (error: any) {
       const { statusCode, message } = error;
       res.status(statusCode || 400).send({ message });

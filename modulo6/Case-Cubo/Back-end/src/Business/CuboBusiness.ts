@@ -14,6 +14,7 @@ export class CuboBusiness {
        if (!first_name || !laster_name || !participation) {
         throw new CustomError(422, "Missing input");
       }
+      
       const verifyFirstName = first_name.toLocaleUpperCase();
       const verifyLastertName = laster_name.toLocaleUpperCase();
 
@@ -27,6 +28,17 @@ export class CuboBusiness {
         throw new CustomError(error.statusCode, error.message);
     }
   };
+  selectCubo = async () => {
+    try {
+       
+     const result = await this.cuboData.selectCubo();
+     return result
+     
+    } catch (error: any) {
+        throw new CustomError(error.statusCode, error.message);
+    }
+  };
+
 
 }
 

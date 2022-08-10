@@ -1,0 +1,13 @@
+POST http://localhost:3003/participation/create
+Content-Type: application/json
+
+
+{
+    "first_name": "Ivan",
+   "laster_name": "Joaquim",
+   "participation": "50"
+}
+
+###
+
+GET http://localhost:3003/participation/select

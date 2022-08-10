@@ -1,5 +1,5 @@
 import { CustomError } from "../Error/CustomError";
-import { CuboModel } from "../Model/CuboModel";
+import { CuboInputDTO, CuboModel } from "../Model/CuboModel";
 import { BaseData } from "./BaseData";
 
 export class CuboData extends BaseData {
@@ -13,6 +13,16 @@ export class CuboData extends BaseData {
         laster_name: cubo.getLasterName(),
         participation: cubo.getParticipation()
       });
+    } catch (error: any) {
+      throw new CustomError(400, error.sqlMessage);
+    }
+  }
+  public async selectCubo(): Promise<CuboInputDTO[]> {
+    try {
+
+     const result = await BaseData.connection(this.tableName)
+      .select("*")
+      return result
     } catch (error: any) {
       throw new CustomError(400, error.sqlMessage);
     }
