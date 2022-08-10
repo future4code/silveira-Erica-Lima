@@ -5,10 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "ts-node-dev ./src/index.ts",
-    "start": "node ./build/index.js",
-    "build": "tsc",
-    "test": "jest"
+    "start": "clear && tsc && node ./build/index.js",
+    "start:dev": "clear && tsnd ./src/index.ts",
+    "test": "clear && echo \"Testagem iniciada...\" && jest"
   },
   "keywords": [],
   "author": "",
