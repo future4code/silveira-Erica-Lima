@@ -49,7 +49,7 @@ const Login = () => {
       })
       .catch((err) => {
         if (err.response.data.message.includes("Senha incorreta")) {
-          setErrPassword(err.response.data.message);
+          setErrPassword(err.response.data);
           setCheckErrPassword(true);
         } else {
           setErrEmail(err.response.data.message);

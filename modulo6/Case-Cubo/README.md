@@ -8,6 +8,8 @@ https://github.com/cubonetwork/fullstack-challenge
 
 ### API Cubo
 
+https://documenter.getpostman.com/view/20353568/VUjQn5Ae
+
 ### Tecnologias usadas:
 
 * Typescript;
