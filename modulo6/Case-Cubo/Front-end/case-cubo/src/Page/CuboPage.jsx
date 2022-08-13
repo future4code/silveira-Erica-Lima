@@ -8,6 +8,8 @@ function CuboPage () {
         <div>
             <Header/>
             <Table/>
+            
+   
         </div>
     )
 }
