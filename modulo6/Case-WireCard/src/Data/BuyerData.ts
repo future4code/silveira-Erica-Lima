@@ -1,4 +1,4 @@
-import { CustomError } from "../error/CustomError";
+import { CustomError } from "../Error/CustomError";
 import {Buyer} from "../Model/Buyer";
 import { BaseData } from "./BaseData";
 
@@ -6,7 +6,7 @@ export class BuyerData extends BaseData{
     protected tableName:string = "Buyer"
 
     public async createBuyer(buyer: Buyer) : Promise<void>{
-        // console.log(user)
+        
         try {
             await BaseData.connection(this.tableName).insert({
                 id: buyer.getId(),
@@ -35,17 +35,19 @@ export class BuyerData extends BaseData{
 
         }
     }
-    public async findBuyerByCpf(cpf:string) : Promise<Buyer | undefined>{
+
+    public async getBuyerById(id:string) : Promise<Buyer | undefined>{
 
         try {
-           const buyer = await BaseData.connection(this.tableName).select("*")
-            .where({cpf: cpf})
-            return buyer[0] && Buyer.toUserModel(buyer[0])
-        }   
+           const [buyer]:Buyer[] = await BaseData.connection(this.tableName).select("*")
+            .where({id})
+            return buyer
+        }
         catch (error:any) {
             console.log(error)
             throw new CustomError(400, error.sqlMessage);
 
         }
     }
+    
 } 

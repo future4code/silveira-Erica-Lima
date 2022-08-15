@@ -1,4 +1,4 @@
-import { CustomError } from "../error/CustomError";
+import { CustomError } from "../Error/CustomError";
 import { Card } from "../Model/Card";
 import { BaseData } from "./BaseData";
 
@@ -18,6 +18,18 @@ export class CardData extends BaseData {
       throw new CustomError(400, error.sqlMessage);
     }
   }
+  public async getCardById(id:string) : Promise<Card | undefined>{
 
+    try {
+       const [card]:Card[] = await BaseData.connection(this.tableName).select("*")
+        .where({id})
+        return card
+    }
+    catch (error:any) {
+        console.log(error)
+        throw new CustomError(400, error.sqlMessage);
+
+    }
+}
 
 }

@@ -11,7 +11,7 @@ export enum STATUS {
 export class Payment{
     constructor(
         private id: string,
-        private amount: string,
+        private amount: number,
         private type: TYPE,
         private status: STATUS,
         private buyer_id: string,
@@ -22,7 +22,7 @@ export class Payment{
     getId = ():string => {
         return this.id
     }
-    getAmount = ():string => {
+    getAmount = ():number => {
         return this.amount
     }
     getType = ():TYPE => {
