@@ -2,6 +2,7 @@ POST http://localhost:3003/client
 Content-Type: application/json
 
 {
+
      "id": "6"
 }
 
@@ -21,12 +22,14 @@ Content-Type: application/json
 POST http://localhost:3003/payment
 Content-Type: application/json
 
+
 {
       "amount": "R$ 27,55",
       "type": "BOLETO"
         
 
 }
+
 ###
 POST http://localhost:3003/card
 Content-Type: application/json
@@ -38,3 +41,6 @@ Content-Type: application/json
         
 
 }
+
+
+

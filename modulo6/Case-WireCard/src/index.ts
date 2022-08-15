@@ -16,6 +16,8 @@ import { PaymentController } from "./Controller/PaymentController";
 import { CardBusiness } from "./Business/CardBusiness";
 import { CardController } from "./Controller/CardController";
 
+
+
 const clientBusiness = new ClientBusiness(new ClientData());
 
 const clientController = new ClientController(clientBusiness);
@@ -53,3 +55,5 @@ const cardBusiness = new CardBusiness(
 );
 const cardController = new CardController(cardBusiness);
 app.post("/card", cardController.card);
+
+

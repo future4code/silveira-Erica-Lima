@@ -13,7 +13,9 @@ export class BuyerBusiness {
     private tokenGenerator: TokenGenerator,
     private buyerData: BuyerData
   ) {}
+
   buyer = async (input:BuyerInputDTO) => {
+
     try {
       const {name, email, cpf} = input
       if (!name || !email || !cpf) {
