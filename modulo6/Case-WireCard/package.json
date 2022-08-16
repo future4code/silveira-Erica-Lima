@@ -6,9 +6,13 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "ts-node-dev ./src/index.ts",
+<<<<<<< HEAD
+    "test": "echo \"Error: no test specified\" && exit 1"
+=======
     "start": "node ./build/index.js",
     "build": "tsc",
     "test": "jest"
+>>>>>>> master
   },
   "keywords": [],
   "author": "",

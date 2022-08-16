@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+
 import { CardBusiness } from "../Business/CardBusiness";
 import { PaymentBusiness } from "../Business/PaymentBusiness";
 import { PaymentBoleto, PaymentCard, TYPE } from "../Model/Payment";
@@ -61,4 +62,6 @@ export class PaymentController {
     const payment = await this.paymentBusiness.getPaymentId(id);
     res.status(200).send(payment);
   };
+
+
 }
