@@ -1,7 +1,9 @@
 import { CustomError } from "../Error/CustomError";
+
 import { HashGenerator } from "../Services/hashGenerator";
 import { IdGenerator } from "../Services/idGenerator";
 import { TokenGenerator } from "../Services/tokenGenerator";
+
 import { CardInputDto } from "../Types/CardInputDTO";
 import { CardData } from "../Data/CardData";
 import { Card } from "../Model/Card";
@@ -9,6 +11,7 @@ import { BuyerData } from "../Data/BuyerData";
 
 export class CardBusiness {
   constructor(
+
     private hashGenerator: HashGenerator,
     private idGenerator: IdGenerator,
     private tokenGenerator: TokenGenerator,
@@ -48,4 +51,5 @@ export class CardBusiness {
       throw new CustomError(error.statusCode, error.message);
     }
   }
+
 }
