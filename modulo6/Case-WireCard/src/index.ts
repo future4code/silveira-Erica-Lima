@@ -18,16 +18,20 @@ import { CardController } from "./Controller/CardController";
 
 const clientBusiness = new ClientBusiness(new ClientData(),   new IdGenerator());
 
+
 const clientController = new ClientController(clientBusiness);
 
 app.post("/client", clientController.client);
 
 const buyerBusiness = new BuyerBusiness(
+
   new IdGenerator(),
+
   new BuyerData()
 );
 const buyerController = new BuyerController(buyerBusiness);
 app.post("/buyer", buyerController.buyer);
+
 app.get("/buyer/:id", buyerController.getBuyerId)
 
 const paymentBusiness = new PaymentBusiness(
@@ -50,4 +54,5 @@ app.get("/payment/:id", paymentController.getPaymentId)
 
 const cardController = new CardController(cardBusiness);
 app.post("/card", cardController.card);
+
 
