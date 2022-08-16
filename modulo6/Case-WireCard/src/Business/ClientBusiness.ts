@@ -1,4 +1,5 @@
 import { CustomError } from "../Error/CustomError";
+
 import { HashGenerator } from "../Services/hashGenerator";
 import { IdGenerator } from "../Services/idGenerator";
 import { TokenGenerator } from "../Services/tokenGenerator";
@@ -7,6 +8,7 @@ import { Client } from "../Model/Client";
 import { ClientInputDTO } from "../Types/ClientInputDTO";
 
 export class ClientBusiness {
+
     constructor(
         private clientData: ClientData
       ) {}
@@ -25,3 +27,4 @@ export class ClientBusiness {
         }
       }
 }
+

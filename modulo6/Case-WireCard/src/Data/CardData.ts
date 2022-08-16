@@ -11,6 +11,7 @@ export class CardData extends BaseData {
         id: card.getId(),
         card_holder_name: card.getCardHolderName(),
         card_expiration_date: card.getCardExpirationDate(),
+        card_number: card.getCardNumber(),
         card_cvv: card.getCardCvv(),
         buyer_id: card.getBuyerId(),
       });
@@ -18,6 +19,7 @@ export class CardData extends BaseData {
       throw new CustomError(400, error.sqlMessage);
     }
   }
+
   public async getCardById(id: string): Promise<Card | undefined> {
     try {
       const [card]: Card[] = await BaseData.connection(this.tableName)
@@ -29,4 +31,5 @@ export class CardData extends BaseData {
       throw new CustomError(400, error.sqlMessage);
     }
   }
+
 }

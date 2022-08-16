@@ -16,16 +16,19 @@ import { PaymentController } from "./Controller/PaymentController";
 import { CardBusiness } from "./Business/CardBusiness";
 import { CardController } from "./Controller/CardController";
 
-const clientBusiness = new ClientBusiness(new ClientData());
+const clientBusiness = new ClientBusiness(new ClientData(),   new IdGenerator());
+
 
 const clientController = new ClientController(clientBusiness);
 
 app.post("/client", clientController.client);
 
 const buyerBusiness = new BuyerBusiness(
+
   new HashGenerator(),
   new IdGenerator(),
   new TokenGenerator(),
+
   new BuyerData()
 );
 const buyerController = new BuyerController(buyerBusiness);
@@ -53,3 +56,29 @@ const cardBusiness = new CardBusiness(
 );
 const cardController = new CardController(cardBusiness);
 app.post("/card", cardController.card);
+
+app.get("/buyer/:id", buyerController.getBuyerId)
+
+const paymentBusiness = new PaymentBusiness(
+  new IdGenerator(),
+  new PaymentData()
+  
+);
+const cardBusiness = new CardBusiness(
+
+  new IdGenerator(),
+  new CardData(),
+  new BuyerData()
+
+);
+const paymentController = new PaymentController(paymentBusiness, cardBusiness);
+app.post("/payment", paymentController.payment);
+app.get("/payment/:id", paymentController.getPaymentId)
+
+
+
+const cardController = new CardController(cardBusiness);
+app.post("/card", cardController.card);
+
+
+

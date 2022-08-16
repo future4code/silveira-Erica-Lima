@@ -14,5 +14,7 @@ export class ClientController{
             const { statusCode, message } = error;
           res.status(statusCode || 400).send({ message });
         }
+
     }
+  };
 }
