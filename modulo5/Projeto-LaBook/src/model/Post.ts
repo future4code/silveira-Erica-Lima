@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+export const postTableName = "Labook_Posts";
+=======
 export enum POST_TYPE {
   normal = "NORMAL",
   evento = "EVENTO",
@@ -43,3 +46,4 @@ export class Post {
     );
   }
 }
+>>>>>>> master

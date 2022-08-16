@@ -1,10 +1,13 @@
 import { CustomError } from "../Error/CustomError";
+
 import { IdGenerator } from "../Services/idGenerator";
+
 import { ClientData } from "../Data/ClientData";
 import { Client } from "../Model/Client";
 import { ClientInputDTO } from "../Types/ClientInputDTO";
 
 export class ClientBusiness {
+
   constructor(
     private clientData: ClientData,
     private idGenerator: IdGenerator
@@ -21,3 +24,4 @@ export class ClientBusiness {
     }
   };
 }
+

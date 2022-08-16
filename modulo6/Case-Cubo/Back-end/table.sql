@@ -1,0 +1,6 @@
+ CREATE TABLE IF NOT EXISTS CUBO(
+    id VARCHAR(255) PRIMARY KEY,
+    first_name VARCHAR(255)  NOT NULL,
+   laster_name VARCHAR(255) NOT NULL,
+   participation VARCHAR(255) NOT NULL
+  );

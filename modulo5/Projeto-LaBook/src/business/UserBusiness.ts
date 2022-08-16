@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+export default class UserBusiness{
+    const
+}
+=======
 import { UserData } from "../data/mySQL/UserData";
 import { IncompleteField, IncompleteFieldLogin, InvalidEmail, InvalidPassword, InvalidPasswordIsCorrect, InvalidUser } from "../error/customError";
 import { User } from "../model/User";
@@ -80,3 +85,4 @@ export class UserBusiness {
     }
   };
 }
+>>>>>>> master

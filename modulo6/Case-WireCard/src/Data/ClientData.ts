@@ -9,7 +9,9 @@ export class ClientData extends BaseData{
        
         try {
             await BaseData.connection(this.tableName).insert({
+
                 id: client.getId()
+
                 
             })
         } catch (error:any) {
@@ -18,5 +20,21 @@ export class ClientData extends BaseData{
             
         }
     }
+
    
+
+    public async getClientById(id:string) : Promise<Client | undefined>{
+
+        try {
+           const [client]:Client[] = await BaseData.connection(this.tableName).select("*")
+            .where({id})
+            return client
+        }
+        catch (error:any) {
+            console.log(error)
+            throw new CustomError(400, error.sqlMessage);
+    
+        }
+    }
+
 }

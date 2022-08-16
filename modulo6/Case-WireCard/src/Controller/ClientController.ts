@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { ClientBusiness } from "../Business/ClientBusiness";
 import { ClientInputDTO } from "../Types/ClientInputDTO";
 
+
 export class ClientController {
   constructor(private clientBusiness: ClientBusiness) {}
   client = async (req: Request, res: Response) => {
@@ -15,6 +16,8 @@ export class ClientController {
     } catch (error: any) {
       const { statusCode, message } = error;
       res.status(statusCode || 400).send({ message });
+
+
     }
   };
 }

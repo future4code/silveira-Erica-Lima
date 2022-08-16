@@ -5,9 +5,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+
     "start": "clear && tsc && node ./build/index.js",
     "start:dev": "clear && tsnd ./src/index.ts",
     "test": "clear && echo \"Testagem iniciada...\" && jest"
+
+
+
+
   },
   "keywords": [],
   "author": "",
