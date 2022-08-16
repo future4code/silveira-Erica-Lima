@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { BuyerBusiness } from "../Business/BuyerBusiness";
 import { BuyerInputDTO } from "../Types/BuyerInputDTO";
 
+
 export class BuyerController{
     constructor(private buyerBusiness: BuyerBusiness){}
     buyer = async (req: Request, res: Response) => {
@@ -18,3 +19,4 @@ export class BuyerController{
         }
     }
 }
+

@@ -1,0 +1,120 @@
+ @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: black ;
+}
+
+
+.ContainerQuemSou {
+  width: 405px;
+  height: 321px;
+  margin: 0 12px 12px 0;
+  padding: 153px 117px 100px 149px;
+  /* background-color: #011726; */
+  color:azure ;
+  
+  background-color: teal;
+ 
+}
+
+.DivEricaInacia{
+    width: 671px;
+    background-color: #011726;
+    
+}
+.H1EricaInacia{
+    padding-left: 12px;
+    padding-top: 12px;
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.28px;
+    color: #fff;
+}
+.H1Titulo{
+ padding-bottom: 15px;
+}
+.H2Titulo{
+    padding-bottom: 20px;
+}
+
+.ButtonCv{
+    width: 140px;
+    height: 30px;
+    margin: 32px 12px 0 1px;
+    padding: 5px 20px 7px 21px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    /* background-c:olor #82d0d9; */
+    color: rgb(148, 143, 188);
+    background-color: rgb(37, 2, 2);
+}
+
+.ContainerConhecimentos{
+    width: 1280px;
+    height: 207px;
+    padding: 22px 30px 40px 40px;
+    align-items: center;
+    background-color: #1b818c;
+}
+.FrontEnd{
+    width: 286px;
+    height: 67px;
+    margin: 35px 122px 20px 0;
+    font-family: Montserrat;
+    font-size: 55px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    color: #fff;
+    display: inline-block
+}
+
+.BackEnd{
+    width: 174px;
+    height: 57px;
+    margin: 35px 0 20px 122px;
+    font-family: Montserrat;
+    font-size: 55px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    color: #fff;
+    
+}
+
+.Desenvolvimento{
+    width: 247px;
+    height: 133px;
+    margin: 20px 161px 0 0;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.22px;
+    color: #fff;
+}
+
+.DesenvolvimentoBack{
+    width: 267px;
+    height: 95px;
+    margin: 20px 7px 38px 122px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.22px;
+    color: #fff;
+} 

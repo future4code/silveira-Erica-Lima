@@ -10,6 +10,7 @@ export class ClientData extends BaseData{
         try {
             await BaseData.connection(this.tableName).insert({
                 id: client.getId(),
+
                 
             })
         } catch (error:any) {
