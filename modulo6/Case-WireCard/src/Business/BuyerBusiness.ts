@@ -1,10 +1,15 @@
 import { CustomError } from "../Error/CustomError";
+
+import { HashGenerator } from "../Services/hashGenerator";
 import { IdGenerator } from "../Services/idGenerator";
+import { TokenGenerator } from "../Services/tokenGenerator";
+
 import { BuyerData } from "../Data/BuyerData";
 import { Buyer } from "../Model/Buyer";
 import { BuyerInputDTO } from "../Types/BuyerInputDTO";
 
 export class BuyerBusiness {
+
   constructor(private idGenerator: IdGenerator, private buyerData: BuyerData) {}
   buyer = async (input: BuyerInputDTO) => {
     try {
@@ -13,6 +18,7 @@ export class BuyerBusiness {
         throw new CustomError(422, "Missing input");
       }
       if (cpf.length > 11 || cpf.length < 11) {
+
         throw new CustomError(422, "Invalid CPF");
       }
       if (!email.includes("@") || !email.includes(".com")) {
@@ -24,15 +30,18 @@ export class BuyerBusiness {
         throw new CustomError(401, "Invalid credentials");
       }
 
+
       const verificationCpf = await this.buyerData.findBuyerByCpf(cpf);
 
       if (verificationCpf) {
         throw new CustomError(401, "Invalid credentials");
       }
+
       const id = this.idGenerator.generate();
       const newBuyer = new Buyer(id, name, email, cpf);
 
       await this.buyerData.createBuyer(newBuyer);
+
 
       return newBuyer;
     } catch (error: any) {
@@ -50,4 +59,5 @@ export class BuyerBusiness {
     }
     return buyerId;
   };
+
 }

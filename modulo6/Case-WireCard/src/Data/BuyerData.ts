@@ -38,6 +38,7 @@ export class BuyerData extends BaseData{
 
     public async getBuyerById(id:string) : Promise<Buyer | undefined>{
 
+
         try {
            const [buyer]:Buyer[] = await BaseData.connection(this.tableName).select("*")
             .where({id})
@@ -52,15 +53,17 @@ export class BuyerData extends BaseData{
     }
     public async findBuyerByCpf(cpf:string) : Promise<Buyer | undefined>{
 
+
         try {
-           const buyer = await BaseData.connection(this.tableName).select("*")
-            .where({cpf: cpf})
-            return buyer[0] && Buyer.toUserModel(buyer[0])
-        }   
+           const [buyer]:Buyer[] = await BaseData.connection(this.tableName).select("*")
+            .where({id})
+            return buyer
+        }
         catch (error:any) {
             console.log(error)
             throw new CustomError(400, error.sqlMessage);
 
         }
     }
+    
 } 
