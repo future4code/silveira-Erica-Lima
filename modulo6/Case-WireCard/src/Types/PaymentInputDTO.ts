@@ -3,8 +3,9 @@ import { STATUS, TYPE } from "../Model/Payment";
 export type PaymentInputDTO = {
   amount: number;
   type: TYPE;
-  status?: STATUS;
-  buyer_id: string;
-  card_id: string;
+
+  status: STATUS;
   client_id: string;
+  buyer_id: string;
+
 };

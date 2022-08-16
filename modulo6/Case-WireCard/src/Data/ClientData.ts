@@ -9,7 +9,9 @@ export class ClientData extends BaseData{
        
         try {
             await BaseData.connection(this.tableName).insert({
-                id: client.getId(),
+
+                id: client.getId()
+
                 
             })
         } catch (error:any) {
@@ -18,6 +20,9 @@ export class ClientData extends BaseData{
             
         }
     }
+
+   
+
     public async getClientById(id:string) : Promise<Client | undefined>{
 
         try {
@@ -31,4 +36,5 @@ export class ClientData extends BaseData{
     
         }
     }
+
 }
