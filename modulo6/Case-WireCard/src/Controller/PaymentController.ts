@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+
 import { PaymentBusiness } from "../Business/PaymentBusiness";
 import { PaymentInputDTO } from "../Types/PaymentInputDTO";
 
@@ -18,4 +19,5 @@ export class PaymentController{
           res.status(statusCode || 400).send({ message });
         }
     }
+
 }

@@ -19,6 +19,7 @@ export class TokenGenerator {
     return newToken;
   };
 
+
   // public verify(token: string) {
   //   const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
   //   const result = { id: payload.id };
@@ -32,6 +33,7 @@ export class TokenGenerator {
 
     return tokenData as AuthenticationData
 }
+
 }
 
 export interface AuthenticationData {
