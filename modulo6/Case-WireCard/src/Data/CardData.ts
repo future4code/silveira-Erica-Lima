@@ -11,6 +11,7 @@ export class CardData extends BaseData {
         id: card.getId(),
         card_holder_name: card.getCardHolderName(),
         card_expiration_date: card.getCardExpirationDate(),
+        card_number: card.getCardNumber(),
         card_cvv: card.getCardCvv(),
         buyer_id: card.getBuyerId(),
       });

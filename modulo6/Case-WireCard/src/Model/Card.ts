@@ -1,9 +1,11 @@
+import { STATUS, TYPE } from "./Payment"
+
 export class Card{
     constructor(
         private id: string,
         private card_holder_name: string,
         private card_number: string,
-        private card_expiration_date: Date,
+        private card_expiration_date: string,
         private card_cvv: string,
         private buyer_id: string
     ){}
@@ -17,7 +19,7 @@ export class Card{
     getCardNumber = ():string => {
         return this.card_number
     }
-    getCardExpirationDate= ():Date => {
+    getCardExpirationDate= ():string => {
         return this.card_expiration_date
     }
     getCardCvv = ():string => {

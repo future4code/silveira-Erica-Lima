@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
+
+import { CardBusiness } from "../Business/CardBusiness";
 import { PaymentBusiness } from "../Business/PaymentBusiness";
-import { PaymentInputDTO } from "../Types/PaymentInputDTO";
+import { PaymentBoleto, PaymentCard, TYPE } from "../Model/Payment";
+
 
 export class PaymentController{
     constructor(private paymentBusiness: PaymentBusiness){}
@@ -18,5 +21,14 @@ export class PaymentController{
             const { statusCode, message } = error;
           res.status(statusCode || 400).send({ message });
         }
+
     }
+  };
+  getPaymentId = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const payment = await this.paymentBusiness.getPaymentId(id);
+    res.status(200).send(payment);
+  };
+
+
 }

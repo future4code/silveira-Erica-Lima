@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { BuyerBusiness } from "../Business/BuyerBusiness";
 import { BuyerInputDTO } from "../Types/BuyerInputDTO";
 
+
 export class BuyerController{
     constructor(private buyerBusiness: BuyerBusiness){}
     buyer = async (req: Request, res: Response) => {
@@ -18,5 +19,12 @@ export class BuyerController{
             const { statusCode, message } = error;
           res.status(statusCode || 400).send({ message });
         }
+
     }
+  };
+  getBuyerId = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const buyer = await this.buyerBusiness.getBuyerId(id);
+    res.status(200).send(buyer);
+  };
 }

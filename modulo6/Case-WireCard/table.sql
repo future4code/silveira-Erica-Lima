@@ -1,4 +1,7 @@
 CREATE TABLE IF NOT EXISTS Client(
+  id VARCHAR(255) PRIMARY KEY
+);
+CREATE TABLE IF NOT EXISTS Buyer(
   id VARCHAR(255) PRIMARY KEY,
   name VARCHAR(255)  NOT NULL
 );
@@ -17,17 +20,15 @@ CREATE TABLE IF NOT EXISTS Card(
   card_expiration_date VARCHAR(255) UNIQUE NOT NULL ,
   card_cvv  VARCHAR(255)  NOT NULL,
   buyer_id VARCHAR(255) ,
-  FOREIGN KEY(buyer_id) REFERENCES Buyer(id),
+  FOREIGN KEY(buyer_id) REFERENCES Buyer(id)
 );
 CREATE TABLE IF NOT EXISTS Payment(
   id VARCHAR(255) PRIMARY KEY,
   amount VARCHAR(255)  NOT NULL,
   type ENUM("BOLETO", "CARD") NOT NULL,
-  status ENUM("A PAGAR", "PAGO")
+  status ENUM("PAGAR", "PAGO")
   buyer_id VARCHAR(255) ,
-  card_id VARCHAR(255),
   client_id VARCHAR(255) ,
   FOREIGN KEY(buyer_id) REFERENCES Buyer(id),
-  FOREIGN KEY(card_id) REFERENCES Card(id),
   FOREIGN KEY(client_id) REFERENCES Client(id)
 );
