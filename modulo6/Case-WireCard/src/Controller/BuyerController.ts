@@ -11,12 +11,17 @@ export class BuyerController{
             const input: BuyerInputDTO = {
                 name, email, cpf
             }
-            const token = await this.buyerBusiness.buyer(input)
-            res.status(201).send({ token });
+
+
+            const result = await this.buyerBusiness.buyer(input)
+            res.status(201).send({ result });
+
+
         } catch (error: any) {
             const { statusCode, message } = error;
           res.status(statusCode || 400).send({ message });
         }
+
     }
 }
 

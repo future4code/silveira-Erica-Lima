@@ -3,6 +3,9 @@ import { CardBusiness } from "../Business/CardBusiness";
 import { CardInputDto } from "../Types/CardInputDTO";
 import { PaymentInputDTO } from "../Types/PaymentInputDTO";
 
+import { PaymentInputDTO } from "../Types/PaymentInputDTO";
+
+
 export class CardController{
     constructor(private cardBusiness: CardBusiness){}
     card = async (req: Request, res: Response) => {
@@ -19,3 +22,4 @@ export class CardController{
         }
     }
 }  
+

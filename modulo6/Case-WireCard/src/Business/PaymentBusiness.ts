@@ -9,6 +9,7 @@ import { PaymentData } from "../Data/PaymentData";
 import { BuyerData } from "../Data/BuyerData";
 import { CardData } from "../Data/CardData";
 
+
 export class PaymentBusiness {
     constructor(
         private hashGenerator: HashGenerator,
