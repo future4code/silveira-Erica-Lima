@@ -1,5 +1,6 @@
 import { CustomError } from "../Error/CustomError";
 
+
 import { HashGenerator } from "../Services/hashGenerator";
 import { IdGenerator } from "../Services/idGenerator";
 import { TokenGenerator } from "../Services/tokenGenerator";
@@ -26,6 +27,7 @@ export class BuyerBusiness {
       }
       if (cpf.length > 11  || cpf.length < 11  ) {
 
+
         throw new CustomError(422, "Invalid CPF");
       }
       if (!email.includes("@") || !email.includes(".com")) {
@@ -34,6 +36,15 @@ export class BuyerBusiness {
       const buyer = await this.buyerData.findBuyerByEmail(email);
 
       if (buyer) {
+        throw new CustomError(401, "Invalid credentials");
+      }
+
+
+
+
+      const verificationCpf = await this.buyerData.findBuyerByCpf(cpf);
+
+      if (verificationCpf) {
         throw new CustomError(401, "Invalid credentials");
       }
 

@@ -35,7 +35,6 @@ const buyerBusiness = new BuyerBusiness(
 const buyerController = new BuyerController(buyerBusiness);
 app.post("/buyer", buyerController.buyer);
 
-
 const paymentBusiness = new PaymentBusiness(
   new HashGenerator(),
   new IdGenerator(),
@@ -59,6 +58,10 @@ const cardBusiness = new CardBusiness(
 =
 const cardController = new CardController(cardBusiness);
 app.post("/card", cardController.card);
+
+const cardController = new CardController(cardBusiness);
+app.post("/card", cardController.card);
+
 
 app.get("/buyer/:id", buyerController.getBuyerId)
 
