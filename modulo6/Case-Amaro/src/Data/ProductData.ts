@@ -16,6 +16,7 @@ export class ProductData extends BaseData {
       throw new CustomError(400, error.sqlMessage);
     }
   }
+
   public async findProductByName(name:string) : Promise<Product | undefined>{
 
     try {
@@ -29,4 +30,5 @@ export class ProductData extends BaseData {
 
     }
 }
+
 }
