@@ -39,9 +39,6 @@ export class BuyerBusiness {
         throw new CustomError(401, "Invalid credentials");
       }
 
-
-
-
       const verificationCpf = await this.buyerData.findBuyerByCpf(cpf);
 
       if (verificationCpf) {

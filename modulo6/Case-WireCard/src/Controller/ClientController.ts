@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { ClientBusiness } from "../Business/ClientBusiness";
 import { ClientInputDTO } from "../Types/ClientInputDTO";
 
-
 export class ClientController{
     constructor(private clientBusiness: ClientBusiness){}
     client = async (req: Request, res: Response) => {
