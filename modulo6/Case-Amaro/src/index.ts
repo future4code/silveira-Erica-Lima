@@ -12,5 +12,3 @@ app.post("/product/create", productController.createProduct)
 
 app.get("/product/get", productController.createProduct)
 
-
-

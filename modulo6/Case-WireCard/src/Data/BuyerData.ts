@@ -38,8 +38,6 @@ export class BuyerData extends BaseData{
 
     public async getBuyerById(id:string) : Promise<Buyer | undefined>{
 
-
-
         try {
            const [buyer]:Buyer[] = await BaseData.connection(this.tableName).select("*")
             .where({id})

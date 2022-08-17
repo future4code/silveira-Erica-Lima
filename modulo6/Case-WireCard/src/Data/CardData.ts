@@ -19,7 +19,6 @@ export class CardData extends BaseData {
       throw new CustomError(400, error.sqlMessage);
     }
   }
-
   public async getCardById(id: string): Promise<Card | undefined> {
     try {
       const [card]: Card[] = await BaseData.connection(this.tableName)
@@ -31,5 +30,4 @@ export class CardData extends BaseData {
       throw new CustomError(400, error.sqlMessage);
     }
   }
-
 }

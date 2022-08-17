@@ -66,6 +66,10 @@ app.post("/card", cardController.card);
 const cardController = new CardController(cardBusiness);
 app.post("/card", cardController.card);
 
+const cardController = new CardController(cardBusiness);
+app.post("/card", cardController.card);
+
+
 app.get("/buyer/:id", buyerController.getBuyerId)
 
 const paymentBusiness = new PaymentBusiness(

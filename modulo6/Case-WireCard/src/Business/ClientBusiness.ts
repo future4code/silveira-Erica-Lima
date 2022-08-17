@@ -12,29 +12,20 @@ import { ClientInputDTO } from "../Types/ClientInputDTO";
 
 export class ClientBusiness {
 
-    constructor(
-        private clientData: ClientData
-      ) {}
-      public client = async(input:ClientInputDTO ) => {
-        try {
-            const{id} = input
-            if (!id ) {
-                throw new CustomError(422, "Missing input");
-              }
 
+  constructor(
+    private clientData: ClientData,
+    private idGenerator: IdGenerator
+  ) {}
+  client = async (input: ClientInputDTO) => {
+    try {
+      const id = this.idGenerator.generate();
+      const newClient = new Client(id);
 
-              const newClient = new Client(id)
-
-              await this.clientData.createClient(newClient)
-        } catch (error: any) {
-            throw new CustomError(error.statusCode, error.message);
-        }
-      }
-}
-
-              await this.clientData.createClient(newClient)
-        } catch (error: any) {
-            throw new CustomError(error.statusCode, error.message);
-        }
-      }
+      await this.clientData.createClient(newClient);
+      return newClient;
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  };
 }

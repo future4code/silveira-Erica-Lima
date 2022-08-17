@@ -12,6 +12,7 @@ Content-Type: application/json
 ###
 
 
+
 GET https://projeto-case-amaro.herokuapp.com/product/get
 
 

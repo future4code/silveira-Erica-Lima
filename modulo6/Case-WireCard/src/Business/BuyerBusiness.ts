@@ -5,6 +5,7 @@ import { HashGenerator } from "../Services/hashGenerator";
 import { IdGenerator } from "../Services/idGenerator";
 import { TokenGenerator } from "../Services/tokenGenerator";
 
+
 import { BuyerData } from "../Data/BuyerData";
 import { Buyer } from "../Model/Buyer";
 import { BuyerInputDTO } from "../Types/BuyerInputDTO";
@@ -50,8 +51,6 @@ export class BuyerBusiness {
       const newBuyer = new Buyer(id, name, email, cpf);
 
       await this.buyerData.createBuyer(newBuyer);
-
-
 
       return newBuyer;
     } catch (error: any) {

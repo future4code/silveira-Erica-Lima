@@ -34,5 +34,4 @@ export class ClientData extends BaseData{
     
         }
     }
-
 }

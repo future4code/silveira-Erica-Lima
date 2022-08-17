@@ -15,9 +15,9 @@ export class ProductBusiness {
         throw new CustomError(422, "Missing input");
       }
 
+
       const verifyName = name.toLocaleUpperCase();
       const verifyTags = tags.toLocaleLowerCase();
-
 
       const id = this.idGenerator.generate();
       const newProduct = new Product(id, verifyName, verifyTags);
@@ -52,7 +52,6 @@ export class ProductBusiness {
       throw new CustomError(error.statusCode, error.message);
     }
   };
-
 
 }
 

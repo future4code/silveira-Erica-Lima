@@ -26,6 +26,11 @@ export class PaymentController{
 
     }
 
-
-
+  };
+  getPaymentId = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const payment = await this.paymentBusiness.getPaymentId(id);
+    res.status(200).send(payment);
+  };
+r
 }
