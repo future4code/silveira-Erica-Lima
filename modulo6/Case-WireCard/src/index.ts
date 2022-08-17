@@ -17,8 +17,7 @@ import { CardBusiness } from "./Business/CardBusiness";
 import { CardController } from "./Controller/CardController";
 
 
-const clientBusiness = new ClientBusiness(new ClientData());
-
+const clientBusiness = new ClientBusiness(new ClientData(),   new IdGenerator());
 
 
 const clientController = new ClientController(clientBusiness);
@@ -57,6 +56,7 @@ const cardBusiness = new CardBusiness(
   new CardData(),
   new BuyerData()
 );
+=
 const cardController = new CardController(cardBusiness);
 app.post("/card", cardController.card);
 
@@ -77,6 +77,7 @@ const cardBusiness = new CardBusiness(
 const paymentController = new PaymentController(paymentBusiness, cardBusiness);
 app.post("/payment", paymentController.payment);
 app.get("/payment/:id", paymentController.getPaymentId)
+
 
 
 
