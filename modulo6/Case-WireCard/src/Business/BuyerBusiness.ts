@@ -10,8 +10,16 @@ import { BuyerInputDTO } from "../Types/BuyerInputDTO";
 
 export class BuyerBusiness {
 
-  constructor(private idGenerator: IdGenerator, private buyerData: BuyerData) {}
-  buyer = async (input: BuyerInputDTO) => {
+  constructor(
+    private hashGenerator: HashGenerator,
+    private idGenerator: IdGenerator,
+    private tokenGenerator: TokenGenerator,
+    private buyerData: BuyerData
+  ) {}
+
+  buyer = async (input:BuyerInputDTO) => {
+
+
     try {
       const { name, email, cpf } = input;
       if (!name || !email || !cpf) {

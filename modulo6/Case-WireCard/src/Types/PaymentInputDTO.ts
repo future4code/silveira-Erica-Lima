@@ -6,6 +6,8 @@ export type PaymentInputDTO = {
 
   status: STATUS;
   client_id: string;
+
   buyer_id: string;
+
 
 };

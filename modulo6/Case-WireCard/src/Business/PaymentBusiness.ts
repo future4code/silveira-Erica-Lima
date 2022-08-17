@@ -5,24 +5,67 @@ import { Payment, STATUS, TYPE } from "../Model/Payment";
 import { PaymentInputDTO } from "../Types/PaymentInputDTO";
 import { PaymentData } from "../Data/PaymentData";
 export class PaymentBusiness {
-  constructor(
-    private idGenerator: IdGenerator,
-    private paymentData: PaymentData
-  ) {}
-  payment = async (input: PaymentInputDTO) => {
-    try {
-      const { amount, type, client_id, buyer_id } = input;
-      let { status } = input;
-      if (!amount || !type || !client_id || !buyer_id) {
-        throw new CustomError(422, "Missing input");
-      }
-      if (!status) {
-        status = STATUS.PAGAR;
-      }
-      const verificationAmout = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      }).format(amount);
+
+    constructor(
+        private hashGenerator: HashGenerator,
+        private idGenerator: IdGenerator,
+        private tokenGenerator: TokenGenerator,
+        private paymentData: PaymentData,
+        private buyerData: BuyerData,
+        private clientData: ClientData,
+        private cardData: CardData
+      ) {}
+      payment = async(input: PaymentInputDTO) => {
+        try {
+
+          const {amount, type, status, buyer_id, card_id, client_id} = input
+            if (!amount || !type || !status || !buyer_id || !card_id || !client_id ) {
+
+                throw new CustomError(422, "Missing input");
+              }
+              const verificationAmout = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(amount)
+              
+              if(!verificationAmout){
+                throw new CustomError(401, `Incorrect o amount`)
+              }
+            if(type !== TYPE.BOLETO && type !== TYPE.CARD){
+              throw new CustomError(403, "Incorrect type, put 'BOLETO' or 'CARD'");
+            }
+
+            const tokenData = this.tokenGenerator.getTokenData(token)
+         const buyer_id = tokenData.id
+          const card_id =  tokenData.id
+          const client_id =  tokenData.id
+
+
+
+            if(status !== STATUS.PAGO && status !== STATUS.PAGAR ){
+              throw new CustomError(403, "Incorrect status");
+            }
+          const buyerExist=  await this.buyerData.getBuyerById(buyer_id)
+          if (!buyerExist ) {
+            throw new CustomError(404, `Buyer could not be found`)
+        };
+          const cardExist=  await this.cardData.getCardById(card_id)
+          if (!cardExist ) {
+            throw new CustomError(404, `Card could not be found`)
+        };
+          const clientExist=  await this.clientData.getClientById(client_id)
+          if (!clientExist) {
+            throw new CustomError(404, `Client could not be found`)
+        };
+        const id = this.idGenerator.generate();
+        const newPayment = new Payment(
+          id,
+          amount,
+          type,
+          status,
+          buyer_id,
+          card_id,
+          client_id
+        )
+        await this.paymentData.createPayment(newPayment)
+
 
       if (!verificationAmout) {
         throw new CustomError(401, `Incorrect o amount`);
