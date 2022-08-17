@@ -14,8 +14,11 @@ export class ProductBusiness {
       if (!name || !tags) {
         throw new CustomError(422, "Missing input");
       }
-      const verifyName = name.toLocaleUpperCase()
-      const verifyTags = tags.toLocaleLowerCase()
+
+      const verifyName = name.toLocaleUpperCase();
+      const verifyTags = tags.toLocaleLowerCase();
+
+
       const id = this.idGenerator.generate();
       const newProduct = new Product(id, verifyName, verifyTags);
       await this.productData.createProduct(newProduct);
@@ -24,6 +27,7 @@ export class ProductBusiness {
       throw new CustomError(error.statusCode, error.message);
     }
   };
+
   getName = async(name:string) => {
     try{
       const verifyName = name.toLocaleUpperCase()
@@ -35,6 +39,21 @@ export class ProductBusiness {
         throw new CustomError(error.statusCode, error.message);
     }
   }
+
+  getName = async (name: string) => {
+    try {
+      const verifyName = name.toLocaleUpperCase();
+      if (!verifyName) {
+        throw new CustomError(422, "Missing input");
+      }
+
+      return await this.productData.findProductByName(name);
+    } catch (error: any) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  };
+
+
 }
 
 export default ProductBusiness;

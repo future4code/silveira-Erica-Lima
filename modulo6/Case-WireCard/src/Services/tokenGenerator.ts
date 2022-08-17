@@ -19,6 +19,18 @@ export class TokenGenerator {
     return newToken;
   };
 
+  // public verify(token: string) {
+  //   const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+  //   const result = { id: payload.id };
+  //   return result;
+  // }
+
+
+  // public verify(token: string) {
+  //   const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+  //   const result = { id: payload.id };
+  //   return result;
+  // }
 
 
   // public verify(token: string) {
@@ -34,13 +46,16 @@ export class TokenGenerator {
     )
 
     return tokenData as AuthenticationData
+
 }
+
 
   public verify(token: string) {
     const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
     const result = { id: payload.id };
     return result;
   }
+
 
 }
 

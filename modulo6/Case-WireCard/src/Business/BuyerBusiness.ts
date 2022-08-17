@@ -27,6 +27,7 @@ export class BuyerBusiness {
       }
       if (cpf.length > 11  || cpf.length < 11  ) {
 
+
         throw new CustomError(422, "Invalid CPF");
       }
       if (!email.includes("@") || !email.includes(".com")) {
@@ -68,5 +69,6 @@ export class BuyerBusiness {
     }
     return buyerId;
   };
+
 
 }

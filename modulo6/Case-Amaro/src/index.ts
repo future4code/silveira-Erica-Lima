@@ -9,4 +9,8 @@ const productBusiness = new ProductBusiness(new IdGenerator(), new ProductData()
 const productController = new ProductController(productBusiness)
 
 app.post("/product/create", productController.createProduct)
+
 app.get("/product/get", productController.createProduct)
+
+
+
