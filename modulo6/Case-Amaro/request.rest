@@ -1,0 +1,16 @@
+POST https://projeto-case-amaro.herokuapp.com/product/create
+Content-Type: application/json
+
+{
+"name": "vestido vermelho tubinho",
+"tags": "liso, BALADA"
+}
+
+###
+
+GET https://projeto-case-amaro.herokuapp.com/product/get
+Content-Type: application/json
+
+{
+"name": "VESTIDO VERMELHO TUBINHO"
+}

@@ -1,4 +1,5 @@
 
+
 # Rodada de Cases Semana 2
 
 ## Case WireCard

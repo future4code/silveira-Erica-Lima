@@ -10,7 +10,7 @@ export class ClientData extends BaseData{
         try {
             await BaseData.connection(this.tableName).insert({
 
-                id: client.getId()
+                id: client.getId(),
 
                 
             })
@@ -20,8 +20,6 @@ export class ClientData extends BaseData{
             
         }
     }
-
-   
 
     public async getClientById(id:string) : Promise<Client | undefined>{
 
