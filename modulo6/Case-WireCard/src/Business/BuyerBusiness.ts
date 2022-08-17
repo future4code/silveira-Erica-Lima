@@ -20,13 +20,12 @@ export class BuyerBusiness {
 
   buyer = async (input:BuyerInputDTO) => {
 
-
     try {
-      const { name, email, cpf } = input;
+      const {name, email, cpf} = input
       if (!name || !email || !cpf) {
         throw new CustomError(422, "Missing input");
       }
-      if (cpf.length > 11 || cpf.length < 11) {
+      if (cpf.length > 11  || cpf.length < 11  ) {
 
 
         throw new CustomError(422, "Invalid CPF");
@@ -42,11 +41,13 @@ export class BuyerBusiness {
 
 
 
+
       const verificationCpf = await this.buyerData.findBuyerByCpf(cpf);
 
       if (verificationCpf) {
         throw new CustomError(401, "Invalid credentials");
       }
+
 
       const id = this.idGenerator.generate();
       const newBuyer = new Buyer(id, name, email, cpf);
@@ -71,5 +72,6 @@ export class BuyerBusiness {
     }
     return buyerId;
   };
+
 
 }
