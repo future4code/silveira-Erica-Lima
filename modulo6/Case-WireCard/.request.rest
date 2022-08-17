@@ -4,7 +4,9 @@ POST https://projeto-wirecard-back.herokuapp.com/client
 Content-Type: application/json
 
 {
-     "id": 15
+
+     "id": "6"
+
 }
 
 ###
@@ -21,21 +23,33 @@ Content-Type: application/json
 POST https://projeto-wirecard-back.herokuapp.com/payment
 Content-Type: application/json
 
+
+
 {
-    "amount": 7885,
-    "type": "CARD",
-    
-    "card_cvv":"125",
-     "card_expiration_date":"01/2056",
-     "card_number":"1599877413211598",
-     "card_holder_name":"Gabi",
-    "client_id": "1",
-    "buyer_id": "fc1b1e8d-75fc-4a7e-b851-d0211334658d"
+      "amount": "R$ 27,55",
+      "type": "BOLETO"
+        
+
 }
+
+###
+POST http://localhost:3003/card
+Content-Type: application/json
+
+{
+      "card_holder_name": "Erica Inacia de Lima",
+      "card_number": "1597894774123698",
+      "card_cvv":"123"
+        
+
+}
+
+
+
+
 ###
 GET https://projeto-wirecard-back.herokuapp.com/buyer/fc1b1e8d-75fc-4a7e-b851-d0211334658d
 
 ###
 GET https://projeto-wirecard-back.herokuapp.com/payment/96dc0354-c5aa-45ba-a527-beb576cb174b
-
 

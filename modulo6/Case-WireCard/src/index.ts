@@ -16,7 +16,9 @@ import { PaymentController } from "./Controller/PaymentController";
 import { CardBusiness } from "./Business/CardBusiness";
 import { CardController } from "./Controller/CardController";
 
+
 const clientBusiness = new ClientBusiness(new ClientData(),   new IdGenerator());
+
 
 
 const clientController = new ClientController(clientBusiness);
@@ -33,6 +35,7 @@ const buyerBusiness = new BuyerBusiness(
 );
 const buyerController = new BuyerController(buyerBusiness);
 app.post("/buyer", buyerController.buyer);
+
 
 const paymentBusiness = new PaymentBusiness(
   new HashGenerator(),
@@ -54,6 +57,7 @@ const cardBusiness = new CardBusiness(
   new CardData(),
   new BuyerData()
 );
+
 const cardController = new CardController(cardBusiness);
 app.post("/card", cardController.card);
 
@@ -74,6 +78,7 @@ const cardBusiness = new CardBusiness(
 const paymentController = new PaymentController(paymentBusiness, cardBusiness);
 app.post("/payment", paymentController.payment);
 app.get("/payment/:id", paymentController.getPaymentId)
+
 
 
 
