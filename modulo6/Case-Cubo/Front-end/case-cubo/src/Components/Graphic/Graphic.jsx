@@ -1,56 +1,51 @@
-import React, { useState } from "react";
-import { TableStyled } from "./styled";
-import { Chart } from "react-google-charts";
-import axios from "axios";
+// import React, { useState, useEffect } from "react";
+// import { Chart } from "react-google-charts";
 
 
-function Graphic() {
+// function Graphic(select) {
+  
+  
+//  const options = {
+//   title: "Participation",
+//   pieHole: 0.4,
+//   is3D: false,
+//  };
+// //   const participationSelectApi = () =>{
 
-
- const data = [
-  ["Task", "Hours per Day"],
-  ["Work", 11],
-  ["Eat", 2],
-  ["Commute", 2],
-  ["Watch TV", 2],
-  ["Sleep", 7], // CSS-style declaration
-];
-
- const options = {
-  title: "My Daily Activities",
-  pieHole: 0.4,
-  is3D: false,
-};
-const participationApi = (event) =>{
-  event.preventDefault();
-
-  axios.get(`https://projeto-case-cubo.herokuapp.com/participation/select`)
-  .then((res)=>{
+// //     axios.get(`https://projeto-case-cubo.herokuapp.com/participation/select`)
+// //     .then((res)=>{
+// //       setSelect (res.data.result)
       
-      console.log(res.result.data)
-      
-  })
-  .catch((err)=>{
-      console.log(err); 
+// //     })
+// //   .catch((err)=>{
+// //       console.log(err); 
 
-  })
-}
-console.log(participationApi)
+// //    })
+// //   }
+   
 
-  return (
-    <div>
-      <h1>Participation</h1>
-      <p>Individual data in table and graphic representations</p>
-      <Chart
-      chartType="PieChart"
-      width="100%"
-      height="400px"
-      data={data}
-      options={options}
-    />
-     
-    </div>
-  );
-}
+//   const data = [
+//     ["Task", ""],
+//     ["Work", 1],
+//     ["Eat", 2],
+//     ["Commute", 2],
+//     ["Watch TV", 2],
+//     ["Sleep", 7], // CSS-style declaration
+//   ];
+ 
 
-export default Graphic;
+ 
+
+//   return (
+//     <div>
+    //   <Chart
+    //   chartType="PieChart"
+    //   width="100%"
+    //   height="400px"
+    //   data={data}
+    //   options={options}
+    // />
+//     </div>
+//   );
+// }
+// export default Graphic;
